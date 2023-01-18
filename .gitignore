@@ -24,5 +24,10 @@ bin/
 obj/
 packages/
 .vs/
+
 Debug/
 x64/
+*.sln
+*.filters
+*.vcxproj
+*.user
