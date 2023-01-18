@@ -1,0 +1,1353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\Blocks\</FILEPATH>
+      <FILENAME>GrassBlock.h</FILENAME>
+      <LINE>9</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'Block::BlockID' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>GrassBlock::{ctor}</FUNCTION>
+    <DECORATED>??0GrassBlock@@QEAA@XZ</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>126</LINE>
+      <COLUMN>21</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'verticies':  the writable size is 'verticesVec.public: unsigned __int64 __cdecl std::vector&lt;float,class std::allocator&lt;float&gt; &gt;::size(void)const ()*4' bytes, but '8' bytes might be written.</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>50</LINE>
+        <COLUMN>32</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>52</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>53</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>54</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>55</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>56</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>56</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>56</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>58</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>59</LINE>
+        <COLUMN>30</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>60</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>61</LINE>
+        <COLUMN>21</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>63</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>64</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>65</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>66</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>66</LINE>
+        <COLUMN>40</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>124</LINE>
+        <COLUMN>11</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'verticies' is an array of 1 elements (4 bytes)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>125</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>125</LINE>
+        <COLUMN>22</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'i&lt;verticesVec.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>126</LINE>
+        <COLUMN>21</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>125</LINE>
+        <COLUMN>45</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'i' may equal 1</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>125</LINE>
+        <COLUMN>22</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Continue this loop, (assume 'i&lt;verticesVec.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>126</LINE>
+        <COLUMN>21</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'i' is an In/Out argument to 'std::vector&lt;float,std::allocator&lt;float&gt; &gt;::[]' (declared at c:\program files (x86)\microsoft visual studio\2019\community\vc\tools\msvc\14.29.30133\include\vector:1549)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>126</LINE>
+        <COLUMN>21</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'verticies[1]', (writable range is 0 to 0)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>130</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'indices':  the writable size is 'indicesVec.public: unsigned __int64 __cdecl std::vector&lt;unsigned int,class std::allocator&lt;unsigned int&gt; &gt;::size(void)const ()*4' bytes, but '8' bytes might be written.</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>50</LINE>
+        <COLUMN>32</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>52</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>53</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>54</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>55</LINE>
+        <COLUMN>12</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>56</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>56</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>56</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>58</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>59</LINE>
+        <COLUMN>30</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>60</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>61</LINE>
+        <COLUMN>21</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>63</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>64</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>65</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>66</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>66</LINE>
+        <COLUMN>40</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>124</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>125</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>125</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>128</LINE>
+        <COLUMN>18</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'indices' is an array of 1 elements (4 bytes)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>129</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>129</LINE>
+        <COLUMN>22</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'i&lt;indicesVec.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>130</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>129</LINE>
+        <COLUMN>44</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'i' may equal 1</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>129</LINE>
+        <COLUMN>22</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Continue this loop, (assume 'i&lt;indicesVec.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>130</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'i' is an In/Out argument to 'std::vector&lt;unsigned int,std::allocator&lt;unsigned int&gt; &gt;::[]' (declared at c:\program files (x86)\microsoft visual studio\2019\community\vc\tools\msvc\14.29.30133\include\vector:1549)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>130</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'indices[1]', (writable range is 0 to 0)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>60</LINE>
+      <COLUMN>48</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>60</LINE>
+      <COLUMN>35</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>61</LINE>
+      <COLUMN>33</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>82</LINE>
+      <COLUMN>65</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>82</LINE>
+      <COLUMN>52</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>82</LINE>
+      <COLUMN>38</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>86</LINE>
+      <COLUMN>82</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>86</LINE>
+      <COLUMN>65</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>86</LINE>
+      <COLUMN>52</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>86</LINE>
+      <COLUMN>38</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>87</LINE>
+      <COLUMN>82</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>87</LINE>
+      <COLUMN>65</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>87</LINE>
+      <COLUMN>52</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>87</LINE>
+      <COLUMN>38</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>88</LINE>
+      <COLUMN>82</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>88</LINE>
+      <COLUMN>65</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>88</LINE>
+      <COLUMN>52</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>88</LINE>
+      <COLUMN>38</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>108</LINE>
+      <COLUMN>50</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>108</LINE>
+      <COLUMN>37</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMeshOld</FUNCTION>
+    <DECORATED>?GenerateMeshOld@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>48</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>191</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'indices':  the writable size is 'indicesVec.public: unsigned __int64 __cdecl std::vector&lt;unsigned int,class std::allocator&lt;unsigned int&gt; &gt;::size(void)const ()*4' bytes, but '8' bytes might be written.</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>144</LINE>
+        <COLUMN>32</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>146</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>147</LINE>
+        <COLUMN>30</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>148</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>149</LINE>
+        <COLUMN>21</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>151</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>152</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>153</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>154</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>154</LINE>
+        <COLUMN>40</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>185</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>186</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>186</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>189</LINE>
+        <COLUMN>18</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'indices' is an array of 1 elements (4 bytes)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>190</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>190</LINE>
+        <COLUMN>22</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'i&lt;indicesVec.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>191</LINE>
+        <COLUMN>19</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>190</LINE>
+        <COLUMN>44</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'i' may equal 1</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>190</LINE>
+        <COLUMN>22</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Continue this loop, (assume 'i&lt;indicesVec.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>191</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'i' is an In/Out argument to 'std::vector&lt;unsigned int,std::allocator&lt;unsigned int&gt; &gt;::[]' (declared at c:\program files (x86)\microsoft visual studio\2019\community\vc\tools\msvc\14.29.30133\include\vector:1549)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>191</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'indices[1]', (writable range is 0 to 0)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>187</LINE>
+      <COLUMN>21</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'verticies':  the writable size is 'verticesVec.public: unsigned __int64 __cdecl std::vector&lt;float,class std::allocator&lt;float&gt; &gt;::size(void)const ()*4' bytes, but '8' bytes might be written.</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>144</LINE>
+        <COLUMN>32</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>146</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>147</LINE>
+        <COLUMN>30</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>148</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>149</LINE>
+        <COLUMN>21</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>151</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>152</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>153</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>154</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>154</LINE>
+        <COLUMN>40</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>185</LINE>
+        <COLUMN>11</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'verticies' is an array of 1 elements (4 bytes)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>186</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>186</LINE>
+        <COLUMN>22</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'i&lt;verticesVec.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>187</LINE>
+        <COLUMN>21</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>186</LINE>
+        <COLUMN>45</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'i' may equal 1</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>186</LINE>
+        <COLUMN>22</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Continue this loop, (assume 'i&lt;verticesVec.size()')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>187</LINE>
+        <COLUMN>21</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'i' is an In/Out argument to 'std::vector&lt;float,std::allocator&lt;float&gt; &gt;::[]' (declared at c:\program files (x86)\microsoft visual studio\2019\community\vc\tools\msvc\14.29.30133\include\vector:1549)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+        <FILENAME>ChunkMesh.cpp</FILENAME>
+        <LINE>187</LINE>
+        <COLUMN>21</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'verticies[1]', (writable range is 0 to 0)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>148</LINE>
+      <COLUMN>48</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>148</LINE>
+      <COLUMN>35</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>149</LINE>
+      <COLUMN>33</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>158</LINE>
+      <COLUMN>65</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>158</LINE>
+      <COLUMN>52</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>158</LINE>
+      <COLUMN>38</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>162</LINE>
+      <COLUMN>82</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>162</LINE>
+      <COLUMN>65</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>162</LINE>
+      <COLUMN>52</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>162</LINE>
+      <COLUMN>38</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>163</LINE>
+      <COLUMN>82</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>163</LINE>
+      <COLUMN>65</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>163</LINE>
+      <COLUMN>52</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>163</LINE>
+      <COLUMN>38</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>164</LINE>
+      <COLUMN>82</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>164</LINE>
+      <COLUMN>65</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>164</LINE>
+      <COLUMN>52</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>164</LINE>
+      <COLUMN>38</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>169</LINE>
+      <COLUMN>50</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>ChunkMesh.cpp</FILENAME>
+      <LINE>169</LINE>
+      <COLUMN>37</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>ChunkMesh::GenerateMesh</FUNCTION>
+    <DECORATED>?GenerateMesh@ChunkMesh@@AEAAXXZ</DECORATED>
+    <FUNCLINE>142</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

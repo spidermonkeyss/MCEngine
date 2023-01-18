@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\andre\Documents\Visual Studio 2019\Projects\MCEngine\src\</FILEPATH>
+      <FILENAME>IndexBuffer.cpp</FILENAME>
+      <LINE>4</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'IndexBuffer::dataType' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>IndexBuffer::{ctor}</FUNCTION>
+    <DECORATED>??0IndexBuffer@@QEAA@XZ</DECORATED>
+    <FUNCLINE>4</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>IndexBuffer::dataType</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>
