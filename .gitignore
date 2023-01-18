@@ -24,3 +24,5 @@ bin/
 obj/
 packages/
 .vs/
+Debug/
+x64/
