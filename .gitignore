@@ -1,8 +1,8 @@
 #Ignore files build by Visual Studio
 *.obj
-*.exe
+#*.exe
 *.pdb
-*.user
+#*.user
 *.aps
 *.pch
 *.vspscc
@@ -27,7 +27,7 @@ packages/
 
 Debug/
 x64/
-*.sln
-*.filters
-*.vcxproj
-*.user
+#*.sln
+#*.filters
+#*.vcxproj
+#*.user
