@@ -6,7 +6,7 @@ class ChunkHandler
 {
 private:
 	void LoadChunk(float x, float y);
-	void UnloadChunk(unsigned int chunkIndex, Iterator<Chunk> chunkIt);
+	void UnloadChunk(unsigned int chunkIndex);
 
 	void LoadChunks(Vector2 playerPos);
 	void UnloadChunks();
@@ -17,7 +17,8 @@ public:
 	int loadedChunks = 0;
 	int chunkBufferSize = 0;
 
-	List<Chunk> chunks;
+	Chunk* chunks;
+	//List<Chunk> chunks;
 
 	ChunkHandler();
 	~ChunkHandler();

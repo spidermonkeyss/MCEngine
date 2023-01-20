@@ -4,7 +4,7 @@ ChunkHandler::ChunkHandler()
 {
 	//Buffer extra chunks for chunk swapping
 	chunkBufferSize = pow(loadDistance + loadDistance + 1, 2);
-	chunks.SetSize(chunkBufferSize);
+	chunks = new Chunk[chunkBufferSize];
 }
 
 ChunkHandler::~ChunkHandler()
@@ -22,11 +22,10 @@ void ChunkHandler::Update(Vector2 playerPos)
 void ChunkHandler::LoadChunks(Vector2 playerPos)
 {
 	//reset chunk marks
-	//for (int i = 0; i < loadedChunks; i++)
-	for (Iterator chunk = &chunks; *chunk.Iterator_GetIndex() < loadedChunks; chunk.Iterator_Next())
+	for (int i = 0; i < chunkBufferSize; i++)
 	{
-		chunk.Value().isMarkedForUnload = true;
-		chunk.Value().isMarkedForUpdate = false;
+		chunks[i].isMarkedForUnload = true;
+		chunks[i].isMarkedForUpdate = false;
 	}
 
 	Vector2 playerChunkPos = playerPos / Chunk::chunkWidth;
@@ -54,34 +53,27 @@ void ChunkHandler::LoadChunks(Vector2 playerPos)
 void ChunkHandler::UnloadChunks()
 {
 	//Unload marked chunks
-	//for (int i = 0; i < loadedChunks; i++)
-	//for (Iterator chunk = &chunks; chunk.Iterator_GetIndex() < loadedChunks; chunk.Iterator_Next())
-	Iterator chunk = &chunks;
-	while (*chunk.Iterator_GetIndex() < loadedChunks)
+	for (int i = 0; i < chunkBufferSize; i++)
 	{
-		if (chunk.Value().isMarkedForUnload)
-			UnloadChunk(*chunk.Iterator_GetIndex(), chunk);
-		else
-			chunk.Iterator_Next();
+		if (chunks[i].isLoaded && chunks[i].isMarkedForUnload)
+			UnloadChunk(i);
 	}
 }
 
 void ChunkHandler::UpdateChunks()
 {
 	//update chunk neighbors
-	//for (int i = 0; i < loadedChunks; i++)
-	for (Iterator chunk = &chunks; *chunk.Iterator_GetIndex() < loadedChunks; chunk.Iterator_Next())
+	for (int i = 0; i < chunkBufferSize; i++)
 	{
-		//Chunk* chunk = &chunks[i];
-		if (chunk.Value().isMarkedForUpdate)
+		if (chunks[i].isLoaded && chunks[i].isMarkedForUpdate)
 		{
-			chunk.Value().neighborChunks[0] = GetChunk(chunk.Value().chunkPos.x, chunk.Value().chunkPos.y - 1.0f);//north
-			chunk.Value().neighborChunks[1] = GetChunk(chunk.Value().chunkPos.x + 1.0f, chunk.Value().chunkPos.y);//east
-			chunk.Value().neighborChunks[2] = GetChunk(chunk.Value().chunkPos.x, chunk.Value().chunkPos.y + 1.0f);//south
-			chunk.Value().neighborChunks[3] = GetChunk(chunk.Value().chunkPos.x - 1.0f, chunk.Value().chunkPos.y);//west
+			chunks[i].neighborChunks[0] = GetChunk(chunks[i].chunkPos.x, chunks[i].chunkPos.y - 1.0f);//north
+			chunks[i].neighborChunks[1] = GetChunk(chunks[i].chunkPos.x + 1.0f, chunks[i].chunkPos.y);//east
+			chunks[i].neighborChunks[2] = GetChunk(chunks[i].chunkPos.x, chunks[i].chunkPos.y + 1.0f);//south
+			chunks[i].neighborChunks[3] = GetChunk(chunks[i].chunkPos.x - 1.0f, chunks[i].chunkPos.y);//west
 				 
-			chunk.Value().UpdateNeighborBlockIds(chunk.Value().updateAllBlocks);
-			chunk.Value().chunkMesh.UpdateMesh(chunk.Value().blocks);
+			chunks[i].UpdateNeighborBlockIds(chunks[i].updateAllBlocks);
+			chunks[i].chunkMesh.UpdateMesh(chunks[i].blocks);
 		}
 	}
 }
@@ -100,47 +92,49 @@ void ChunkHandler::MarkNeighborChunksForUpdate(Chunk* chunk)
 
 void ChunkHandler::LoadChunk(float x, float y)
 {
-	loadedChunks++;
+	//Check for empty slot
+	for (int i = 0; i < chunkBufferSize; i++)
+	{
+		if (!chunks[i].isLoaded)
+		{
+			chunks[i].chunkPos = Vector2(x, y);
+			chunks[i].GenerateBlocks();
+				 
+			chunks[i].isLoaded = true;
+			chunks[i].isMarkedForUnload = false;
+			chunks[i].isMarkedForUpdate = true;
+			chunks[i].updateAllBlocks = true;
 
-	Chunk* chunk = &chunks[loadedChunks - 1];
+			//Set chunk neighbors
+			chunks[i].neighborChunks[0] = GetChunk(x, y - 1.0f);//north
+			chunks[i].neighborChunks[1] = GetChunk(x + 1.0f, y);//east
+			chunks[i].neighborChunks[2] = GetChunk(x, y + 1.0f);//south
+			chunks[i].neighborChunks[3] = GetChunk(x - 1.0f, y);//west
 
-	chunk->chunkPos = Vector2(x, y);
-	chunk->GenerateBlocks();
-		 
-	chunk->isLoaded = true;
-	chunk->isMarkedForUnload = false;
-	chunk->isMarkedForUpdate = true;
-	chunk->updateAllBlocks = true;
-	
-	//Set chunk neighbors
-	chunk->neighborChunks[0] = GetChunk(x, y - 1.0f);//north
-	chunk->neighborChunks[1] = GetChunk(x + 1.0f, y);//east
-	chunk->neighborChunks[2] = GetChunk(x, y + 1.0f);//south
-	chunk->neighborChunks[3] = GetChunk(x - 1.0f, y);//west
+			loadedChunks++;
 
-	MarkNeighborChunksForUpdate(chunk);
+			MarkNeighborChunksForUpdate(&chunks[i]);
+			return;
+		}
+	}
+
+	std::cout << "No slots aviable. Chunk unloading not working right" << std::endl;
 }
 
-void ChunkHandler::UnloadChunk(unsigned int chunkIndex, Iterator<Chunk> chunkIt)
+void ChunkHandler::UnloadChunk(unsigned int chunkIndex)
 {
-	chunkIt.Value().Empty();
-	chunkIt.Iterator_Next();
-	*chunkIt.Iterator_GetIndex() -= 1;
-
+	chunks[chunkIndex].Empty();
 	MarkNeighborChunksForUpdate(&chunks[chunkIndex]);
 	loadedChunks--;
-	//chunks.Swap(chunkIndex, loadedChunks);
-	chunks.MoveBack(chunkIndex);
 }
 
 //Get loaded chunks
 Chunk* ChunkHandler::GetChunk(float x, float y)
 {
-	//for (int i = 0; i < loadedChunks; i++)
-	for (Iterator chunk = &chunks; *chunk.Iterator_GetIndex() < loadedChunks; chunk.Iterator_Next())
+	for (int i = 0; i < chunkBufferSize; i++)
 	{
-		if (chunk.Value().chunkPos.x == x && chunk.Value().chunkPos.y == y)
-			return &chunk.Value();
+		if (chunks[i].isLoaded && chunks[i].chunkPos.x == x && chunks[i].chunkPos.y == y)
+			return &chunks[i];
 	}
 	return nullptr;
 }

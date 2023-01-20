@@ -55,7 +55,7 @@ void RunImGuiFrame(ChunkHandler* chunkHandler)
     ImGui::Text(("Loaded Chunks:" + std::to_string(chunkHandler->loadedChunks)).c_str());
     ImGui::Spacing();
     ImGui::Text("Chunks");
-    for (int i = 0; i < chunkHandler->chunks.Size(); i++)
+    for (int i = 0; i < chunkHandler->chunkBufferSize; i++)
         ShowChunkInImGui(&chunkHandler->chunks[i]);
 
     ImGui::Render();
