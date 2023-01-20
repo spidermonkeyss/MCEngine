@@ -27,7 +27,7 @@ packages/
 
 Debug/
 x64/
-#*.sln
-#*.filters
-#*.vcxproj
-#*.user
+*.sln
+*.filters
+*.vcxproj
+*.user
