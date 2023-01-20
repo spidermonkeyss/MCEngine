@@ -1,5 +1,7 @@
 #include "ChunkHandler.h"
 
+#include "glm/gtc/matrix_transform.hpp"
+
 ChunkHandler::ChunkHandler()
 {
 	//Buffer extra chunks for chunk swapping
@@ -98,6 +100,7 @@ void ChunkHandler::LoadChunk(float x, float y)
 		if (!chunks[i].isLoaded)
 		{
 			chunks[i].chunkPos = Vector2(x, y);
+			chunks[i].chunkMatrix4x4 = glm::translate(glm::mat4(1.0f), glm::vec3(chunks[i].chunkPos.x * Chunk::chunkWidth, 0, chunks[i].chunkPos.y * Chunk::chunkWidth));
 			chunks[i].GenerateBlocks();
 				 
 			chunks[i].isLoaded = true;

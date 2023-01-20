@@ -11,6 +11,7 @@ Renderer::~Renderer()
 {
 }
 
+#include "FunctionTimer.h"
 void Renderer::Render(Camera* camera, ChunkHandler* chunkHandler)
 {
 	v = glm::inverse(camera->transform.GetTransformMatrix());
@@ -20,7 +21,9 @@ void Renderer::Render(Camera* camera, ChunkHandler* chunkHandler)
 	{
 		if (chunkHandler->chunks[i].isLoaded)
 		{
-			m = glm::translate(glm::mat4(1.0f), glm::vec3(chunkHandler->chunks[i].chunkPos.x * Chunk::chunkWidth, 0, chunkHandler->chunks[i].chunkPos.y * Chunk::chunkWidth));
+			FunctionTimer ft;
+			//m = glm::translate(glm::mat4(1.0f), glm::vec3(chunkHandler->chunks[i].chunkPos.x * Chunk::chunkWidth, 0, chunkHandler->chunks[i].chunkPos.y * Chunk::chunkWidth));
+			m = chunkHandler->chunks[i].chunkMatrix4x4;
 			mvp = vp * m;
 		
 			Block::blockShader->Bind();

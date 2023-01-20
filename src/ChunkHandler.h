@@ -13,7 +13,7 @@ private:
 	void UpdateChunks();
 	void MarkNeighborChunksForUpdate(Chunk* chunk);
 public:
-	int loadDistance = 2;
+	int loadDistance = 5;
 	int loadedChunks = 0;
 	int chunkBufferSize = 0;
 

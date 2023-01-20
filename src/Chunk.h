@@ -17,6 +17,7 @@ public:
 	static int chunkSize;
 
 	Vector2 chunkPos;
+	glm::mat4 chunkMatrix4x4;
 	unsigned int id;
 	bool isLoaded;
 

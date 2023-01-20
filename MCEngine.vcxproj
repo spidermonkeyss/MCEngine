@@ -106,6 +106,7 @@
     <ClInclude Include="src\ChunkHandler.h" />
     <ClInclude Include="src\ChunkMesh.h" />
     <ClInclude Include="src\Constants.h" />
+    <ClInclude Include="src\FunctionTimer.h" />
     <ClInclude Include="src\GLCall.h" />
     <ClInclude Include="src\IndexBuffer.h" />
     <ClInclude Include="src\Input.h" />
@@ -136,6 +137,7 @@
     <ClCompile Include="src\Chunk.cpp" />
     <ClCompile Include="src\ChunkHandler.cpp" />
     <ClCompile Include="src\ChunkMesh.cpp" />
+    <ClCompile Include="src\FunctionTimer.cpp" />
     <ClCompile Include="src\IndexBuffer.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Main.cpp" />
