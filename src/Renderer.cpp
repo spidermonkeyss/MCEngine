@@ -16,17 +16,15 @@ void Renderer::Render(Camera* camera, ChunkHandler* chunkHandler)
 {
 	v = glm::inverse(camera->transform.GetTransformMatrix());
 	vp = *camera->GetProjMat() * v;
+	Block::blockShader->Bind();
 
 	for (int i = 0; i < chunkHandler->chunkBufferSize; i++)
 	{
 		if (chunkHandler->chunks[i].isLoaded)
 		{
-			FunctionTimer ft;
-			//m = glm::translate(glm::mat4(1.0f), glm::vec3(chunkHandler->chunks[i].chunkPos.x * Chunk::chunkWidth, 0, chunkHandler->chunks[i].chunkPos.y * Chunk::chunkWidth));
 			m = chunkHandler->chunks[i].chunkMatrix4x4;
 			mvp = vp * m;
 		
-			Block::blockShader->Bind();
 			Block::blockShader->SetUniformMat4f("u_MVP", mvp);
 		
 			Draw(*chunkHandler->chunks[i].chunkMesh.GetVertexArray(), Chunk::chunkSize, *Block::blockShader);

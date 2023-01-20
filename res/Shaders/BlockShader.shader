@@ -68,21 +68,15 @@ void main()
 	if (v_blockId[0] == 0)
 		return;
 
-	bool render = false;
-	if (v_neighborIds1[0].x == 0)
-		render = true;
-	else if (v_neighborIds1[0].y == 0)
-		render = true;		  
-	else if (v_neighborIds1[0].z == 0)
-		render = true;		  
-	else if (v_neighborIds2[0].x == 0)
-		render = true;		  
-	else if (v_neighborIds2[0].y == 0)
-		render = true;		  
-	else if (v_neighborIds2[0].z == 0)
-		render = true;
-	
-	if (!render)
+	//air block id is 0. if r equals 0 then render this block
+	float render = 1;
+	render *= v_neighborIds1[0].x;
+	render *= v_neighborIds1[0].y;
+	render *= v_neighborIds1[0].z;
+	render *= v_neighborIds2[0].x;
+	render *= v_neighborIds2[0].y;
+	render *= v_neighborIds2[0].z;
+	if (render != 0)
 		return;
 
 	for (int i = 0; i < 48; i += 8)
