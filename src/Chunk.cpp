@@ -109,7 +109,7 @@ void Chunk::UpdateNeighborBlockIds(bool allBlocks)
 }
 
 Chunk::Chunk()
-    :chunkPos(Vector2()), isLoaded(false), isMarkedForUnload(false), isMarkedForUpdate(false), updateAllBlocks(false), neighborChunks(), x(0), y(0), z(0), north(0), east(0), south(0), west(0), bot(0), top(0)
+    :chunkPos(Vector2()), chunkMatrix4x4(glm::mat4(1.0f)), isLoaded(false), isMarkedForUnload(false), isMarkedForUpdate(false), updateAllBlocks(false), neighborChunks(), x(0), y(0), z(0), north(0), east(0), south(0), west(0), bot(0), top(0)
 {
     id = chunkIdCount++;
     blocks = new BlockData[chunkSize];

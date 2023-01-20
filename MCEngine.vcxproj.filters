@@ -67,6 +67,9 @@
       <Filter>imgui</Filter>
     </ClInclude>
     <ClInclude Include="src\FunctionTimer.h" />
+    <ClInclude Include="src\Collision.h" />
+    <ClInclude Include="src\CollisionDetection.h" />
+    <ClInclude Include="src\Collider.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BlockRegister.cpp" />
@@ -103,5 +106,6 @@
       <Filter>imgui</Filter>
     </ClCompile>
     <ClCompile Include="src\FunctionTimer.cpp" />
+    <ClCompile Include="src\CollisionDetection.cpp" />
   </ItemGroup>
 </Project>

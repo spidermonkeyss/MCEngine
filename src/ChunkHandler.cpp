@@ -7,18 +7,20 @@ ChunkHandler::ChunkHandler()
 	//Buffer extra chunks for chunk swapping
 	chunkBufferSize = pow(loadDistance + loadDistance + 1, 2);
 	chunks = new Chunk[chunkBufferSize];
+	originChunk = nullptr;
 }
 
 ChunkHandler::~ChunkHandler()
 {
 }
 
-void ChunkHandler::Update(Vector2 playerPos)
+void ChunkHandler::Update(Vector3 playerPos)
 {
 	//LoadChunks(Vector2(0, 0));
-	LoadChunks(playerPos);
+	LoadChunks(Vector2(playerPos.x, playerPos.z));
 	UnloadChunks();
 	UpdateChunks();
+	CheckOriginChunk(playerPos);
 }
 
 void ChunkHandler::LoadChunks(Vector2 playerPos)
@@ -92,6 +94,11 @@ void ChunkHandler::MarkNeighborChunksForUpdate(Chunk* chunk)
 		chunk->neighborChunks[3]->isMarkedForUpdate = true;
 }
 
+void ChunkHandler::CheckOriginChunk(Vector3 playerPos)
+{
+	originChunk = GetChunkFromWorldPosition(playerPos);
+}
+
 void ChunkHandler::LoadChunk(float x, float y)
 {
 	//Check for empty slot
@@ -132,6 +139,12 @@ void ChunkHandler::UnloadChunk(unsigned int chunkIndex)
 }
 
 //Get loaded chunks
+Chunk* ChunkHandler::GetChunk(Vector2 vec)
+{
+	return GetChunk(vec.x, vec.y);
+}
+
+//Get loaded chunks
 Chunk* ChunkHandler::GetChunk(float x, float y)
 {
 	for (int i = 0; i < chunkBufferSize; i++)
@@ -141,3 +154,38 @@ Chunk* ChunkHandler::GetChunk(float x, float y)
 	}
 	return nullptr;
 }
+
+//Get loaded chunks
+Chunk* ChunkHandler::GetChunkFromWorldPosition(Vector3 vec)
+{
+	return GetChunk(GetChunkPosition(vec));
+}
+
+//Get loaded chunks
+Chunk* ChunkHandler::GetChunkFromWorldPosition(float x, float y, float z)
+{
+	return GetChunk(GetChunkPosition(x, y, z));
+}
+
+Vector2 ChunkHandler::GetChunkPosition(Vector3 vec)
+{
+	return Vector2(floorf(vec.x / Chunk::chunkWidth), floorf(vec.z / Chunk::chunkWidth));
+}
+
+Vector2 ChunkHandler::GetChunkPosition(float x, float y, float z)
+{
+	return Vector2(floorf(x / Chunk::chunkWidth), floorf(z / Chunk::chunkWidth));
+}
+
+Vector3 ChunkHandler::GetRelativeChunkPosition(Vector3 vec)
+{
+	Vector2 chunkWorldPosition = GetChunkPosition(vec) * Chunk::chunkWidth;
+	return Vector3(vec.x - chunkWorldPosition.x, vec.y, vec.z - chunkWorldPosition.y);
+}
+
+Vector3 ChunkHandler::GetRelativeChunkPosition(float x, float y, float z)
+{
+	Vector2 chunkWorldPosition = GetChunkPosition(x, y, z) * Chunk::chunkWidth;
+	return Vector3(x - chunkWorldPosition.x, y, z - chunkWorldPosition.y);
+}
+

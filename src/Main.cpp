@@ -1,6 +1,6 @@
-#include "PlayerController.h"
 #include "Renderer.h"
 #include "TimeHandler.h"
+#include "CollisionDetection.h"
 
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_glfw_gl3.h"
@@ -54,6 +54,12 @@ void RunImGuiFrame(ChunkHandler* chunkHandler)
    
     ImGui::Text(("Loaded Chunks:" + std::to_string(chunkHandler->loadedChunks)).c_str());
     ImGui::Spacing();
+    ImGui::Text("Origin Chunk");
+    if (chunkHandler->originChunk)
+        ImGui::Text(chunkHandler->originChunk->chunkPos.ToString().c_str());
+    else
+        ImGui::Text("No origin chunk");
+
     ImGui::Text("Chunks");
     for (int i = 0; i < chunkHandler->chunkBufferSize; i++)
         ShowChunkInImGui(&chunkHandler->chunks[i]);
@@ -129,7 +135,6 @@ int main(void)
 
     PlayerController playerController;
     playerController.SetCamera(&camera);
-
     
     Block::blockShader->Bind();
     Block::blockShader->SetUniform1i("u_BlockTypeAmount", BlockRegister::blockRegister.size() - 1);
@@ -138,14 +143,29 @@ int main(void)
 
     TimeHandler::Init();
 
-
     while (!glfwWindowShouldClose(window))
     {
+        //Frame pipeline
+
+        /*Update pipeline
+        * Update time first
+        * Get user inputs
+        * Do player logic and update positions
+        * Handle chunks logic like loading
+        */
         TimeHandler::UpdateTime();
         Input::Update();
         playerController.Update();
-        chunkHandler.Update(Vector2(camera.transform.position.x, camera.transform.position.z));
+        chunkHandler.Update(playerController.GetCamera()->transform.position);
 
+        //Collision
+        CollisionDetection::CheckChunkPlayerCollision(&chunkHandler, &playerController);
+
+        /*Update entity positions after physics and collisions
+        * 
+        */
+
+        //Render last
         renderer.Clear();
         renderer.Render(&camera, &chunkHandler);
 
