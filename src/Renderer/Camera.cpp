@@ -1,7 +1,7 @@
 #include "Camera.h"
 
 Camera::Camera()
-	:transform(Transform()), aspectRatio(0), widthView(0)
+	:aspectRatio(0), widthView(0)
 {
 }
 

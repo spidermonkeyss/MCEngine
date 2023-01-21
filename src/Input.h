@@ -1,7 +1,7 @@
 #pragma once
 #pragma once
-#include "GLCall.h"
-#include "Vector2.h"
+#include "Renderer/GLCall.h"
+#include "Math/Vector2.h"
 
 static enum KeyCode { w, a, s, d, q, e, z, x };
 

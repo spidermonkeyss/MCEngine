@@ -1,7 +1,7 @@
 #pragma once
-#include "Vector3.h"
-#include "Shader.h"
-#include "Texture.h"
+#include "Math/Vector3.h"
+#include "Renderer/Shader.h"
+#include "Renderer/Texture.h"
 
 class Block
 {

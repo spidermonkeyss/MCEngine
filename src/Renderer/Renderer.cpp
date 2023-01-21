@@ -11,10 +11,9 @@ Renderer::~Renderer()
 {
 }
 
-#include "FunctionTimer.h"
-void Renderer::Render(Camera* camera, ChunkHandler* chunkHandler)
+void Renderer::Render(Camera* camera, ChunkHandler* chunkHandler, PlayerController* playerController)
 {
-	v = glm::inverse(camera->transform.GetTransformMatrix());
+	v = glm::inverse(playerController->playerEntity->transform.GetTransformMatrix());
 	vp = *camera->GetProjMat() * v;
 	Block::blockShader->Bind();
 

@@ -1,7 +1,6 @@
 #pragma once
 #include "ChunkMesh.h"
-#include "Vector2.h"
-#include "Collider.h"
+#include "Math/Vector2.h"
 
 class Chunk
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Transform.h"
+#include "Entity/Transform.h"
 
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
@@ -10,7 +10,7 @@ class Camera
 private:
 	glm::mat4 proj;
 public:
-	Transform transform;
+	//Transform transform;
 	float aspectRatio;
 	float widthView;
 

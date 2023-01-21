@@ -1,6 +1,6 @@
 #include "ChunkMesh.h"
 #include "Chunk.h"
-#include "Vector3.h"
+#include "Math/Vector3.h"
 
 /*
 const float ChunkMesh::vertexCount = 8;

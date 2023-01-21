@@ -1,7 +1,7 @@
 #pragma once
-#include "VertexArray.h"
-#include "VertexBuffer.h"
-#include "BlockRegister.h"
+#include "Renderer/VertexArray.h"
+#include "Renderer/VertexBuffer.h"
+#include "Blocks/BlockRegister.h"
 
 class ChunkMesh
 {

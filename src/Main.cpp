@@ -1,9 +1,11 @@
-#include "Renderer.h"
-#include "TimeHandler.h"
-#include "CollisionDetection.h"
+#include "Renderer/Renderer.h"
+#include "Time/TimeHandler.h"
+#include "Entity/CollisionDetection.h"
+#include "Entity/Physics.h"
+#include "Entity/PlayerController.h"
 
-#include "imgui/imgui.h"
-#include "imgui/imgui_impl_glfw_gl3.h"
+#include "Renderer/imgui/imgui.h"
+#include "Renderer/imgui/imgui_impl_glfw_gl3.h"
 
 #include <iostream>
 
@@ -43,7 +45,7 @@ void ShowChunkInImGui(Chunk* chunk)
     }
 }
 
-void RunImGuiFrame(ChunkHandler* chunkHandler)
+void RunImGuiFrame(ChunkHandler* chunkHandler, PlayerController* playerController)
 {
     ImGui_ImplGlfwGL3_NewFrame();
     
@@ -54,6 +56,13 @@ void RunImGuiFrame(ChunkHandler* chunkHandler)
    
     ImGui::Text(("Loaded Chunks:" + std::to_string(chunkHandler->loadedChunks)).c_str());
     ImGui::Spacing();
+    ImGui::Text(("World Position:" + playerController->playerEntity->transform.position.ToString()).c_str());
+    ImGui::Text(("Chunk Position:" + chunkHandler->GetRelativeChunkPosition(playerController->playerEntity->transform.position).ToString()).c_str());
+    ImGui::Text("Collisions");
+    for (int i = 0; i < CollisionDetection::blockCollisions.size(); i++)
+    {
+        ImGui::Text(CollisionDetection::blockCollisions[i].block->position.ToString().c_str());
+    }
     ImGui::Text("Origin Chunk");
     if (chunkHandler->originChunk)
         ImGui::Text(chunkHandler->originChunk->chunkPos.ToString().c_str());
@@ -120,8 +129,8 @@ int main(void)
         ratio = (float)width / (float)height;
         glViewport(0, 0, width, height);
         camera.aspectRatio = ratio;
-        camera.transform.SetRotation(0, 180, 0);
-        camera.transform.SetPosition(0, 70, 0);
+        //camera.transform.SetRotation(0, 180, 0);
+        //camera.transform.SetPosition(0, 70, 0);
     }
     camera.Init();
 
@@ -133,9 +142,15 @@ int main(void)
     ChunkHandler chunkHandler;
     std::cout << "Chunk buffer:" << chunkHandler.chunkBufferSize << std::endl;
 
+    Entity* entityList = new Entity[Entity::MAX_ENTITIES];
+
     PlayerController playerController;
     playerController.SetCamera(&camera);
-    
+    playerController.playerEntity = &entityList[0];
+    playerController.playerEntity->transform.SetRotation(0, 180, 0);
+    playerController.playerEntity->transform.SetPosition(0, 70, 0);
+    playerController.playerEntity->isLoaded = true;
+
     Block::blockShader->Bind();
     Block::blockShader->SetUniform1i("u_BlockTypeAmount", BlockRegister::blockRegister.size() - 1);
     Block::blockTextureAtlas->Bind(0);
@@ -147,33 +162,33 @@ int main(void)
     {
         //Frame pipeline
 
-        /*Update pipeline
-        * Update time first
-        * Get user inputs
-        * Do player logic and update positions
-        * Handle chunks logic like loading
-        */
+        //Update Time
         TimeHandler::UpdateTime();
+        //Get user inputs
         Input::Update();
+        //Do player logic and update positions
         playerController.Update();
-        chunkHandler.Update(playerController.GetCamera()->transform.position);
-
-        //Collision
-        CollisionDetection::CheckChunkPlayerCollision(&chunkHandler, &playerController);
-
+        //Handle chunk logic like loading
+        chunkHandler.Update(playerController.playerEntity->transform.position);
+        //Collisions
+        CollisionDetection::CheckChunkEntityCollision(&chunkHandler, entityList);
+        //Physics
+        Physics::BlockCollisions(CollisionDetection::blockCollisions);
         /*Update entity positions after physics and collisions
         * 
         */
-
         //Render last
         renderer.Clear();
-        renderer.Render(&camera, &chunkHandler);
+        renderer.Render(&camera, &chunkHandler, &playerController);
 
-        RunImGuiFrame(&chunkHandler);
+        RunImGuiFrame(&chunkHandler, &playerController);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
+
+   
+    delete[] entityList;
 
     glfwDestroyWindow(window);
     glfwTerminate();

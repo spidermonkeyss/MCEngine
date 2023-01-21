@@ -4,7 +4,8 @@
 #include "IndexBuffer.h"
 #include "Shader.h"
 #include "Camera.h"
-#include "ChunkHandler.h"
+#include "Entity/PlayerController.h"
+#include "Chunk/ChunkHandler.h"
 
 #include "glm/glm.hpp"
 
@@ -22,6 +23,6 @@ public:
 	Renderer();
 	~Renderer();
 
-	void Render(Camera* camera, ChunkHandler* chunkHandler);
+	void Render(Camera* camera, ChunkHandler* chunkHandler, PlayerController* playerController);
 	void Clear() const;
 };
