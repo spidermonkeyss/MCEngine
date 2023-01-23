@@ -8,6 +8,7 @@
 #include "Renderer/imgui/imgui_impl_glfw_gl3.h"
 
 #include <iostream>
+#include <string>
 
 void ShowChunkInImGui(Chunk* chunk)
 {
@@ -58,14 +59,16 @@ void RunImGuiFrame(ChunkHandler* chunkHandler, PlayerController* playerControlle
     ImGui::Spacing();
     ImGui::Text(("World Position:" + playerController->playerEntity->transform.position.ToString()).c_str());
     ImGui::Text(("Chunk Position:" + chunkHandler->GetRelativeChunkPosition(playerController->playerEntity->transform.position).ToString()).c_str());
+    ImGui::Text(("Velocity:" + playerController->playerEntity->velocity.ToString()).c_str());
     ImGui::Text("Collisions");
     for (int i = 0; i < CollisionDetection::blockCollisions.size(); i++)
     {
         ImGui::Text(CollisionDetection::blockCollisions[i].block->position.ToString().c_str());
+        ImGui::Text(std::to_string((int)CollisionDetection::blockCollisions[i].blockFaceCollidedWith).c_str());
     }
     ImGui::Text("Origin Chunk");
-    if (chunkHandler->originChunk)
-        ImGui::Text(chunkHandler->originChunk->chunkPos.ToString().c_str());
+    if (playerController->playerEntity->originChunk)
+        ImGui::Text(playerController->playerEntity->originChunk->chunkPos.ToString().c_str());
     else
         ImGui::Text("No origin chunk");
 
@@ -122,17 +125,6 @@ int main(void)
     Input::window = window;
 
     Camera camera;
-    {
-        float ratio;
-        int width, height;
-        glfwGetFramebufferSize(window, &width, &height);
-        ratio = (float)width / (float)height;
-        glViewport(0, 0, width, height);
-        camera.aspectRatio = ratio;
-        //camera.transform.SetRotation(0, 180, 0);
-        //camera.transform.SetPosition(0, 70, 0);
-    }
-    camera.Init();
 
     Renderer renderer;
 
@@ -170,13 +162,15 @@ int main(void)
         playerController.Update();
         //Handle chunk logic like loading
         chunkHandler.Update(playerController.playerEntity->transform.position);
+        //Update entites chunk
+        Entity::CheckOriginChunk(&chunkHandler, entityList);
         //Collisions
         CollisionDetection::CheckChunkEntityCollision(&chunkHandler, entityList);
         //Physics
         Physics::BlockCollisions(CollisionDetection::blockCollisions);
-        /*Update entity positions after physics and collisions
-        * 
-        */
+        //Update entity positions after physics and collisions
+        Entity::UpdatePositions(entityList);
+
         //Render last
         renderer.Clear();
         renderer.Render(&camera, &chunkHandler, &playerController);

@@ -164,6 +164,11 @@ void Chunk::Empty()
 
 int Chunk::GetBlockIndex(float x, float y, float z)
 {
+    return GetBlockIndex((int)x, (int)y, (int)z);
+}
+
+int Chunk::GetBlockIndex(int x, int y, int z)
+{
     if (x < 0 || y < 0 || z < 0 || x >= chunkWidth || y >= chunkHeight || z >= chunkWidth)
         return -1;
     int index = y * (chunkWidth * chunkWidth) + z * chunkWidth + x;

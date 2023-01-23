@@ -11,14 +11,12 @@ private:
 	void UnloadChunks();
 	void UpdateChunks();
 	void MarkNeighborChunksForUpdate(Chunk* chunk);
-	void CheckOriginChunk(Vector3 playerPos);
 public:
 	int loadDistance = 5;
 	int loadedChunks = 0;
 	int chunkBufferSize = 0;
 
 	Chunk* chunks;
-	Chunk* originChunk;
 	//List<Chunk> chunks;
 
 	ChunkHandler();

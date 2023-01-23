@@ -7,7 +7,6 @@ ChunkHandler::ChunkHandler()
 	//Buffer extra chunks for chunk swapping
 	chunkBufferSize = pow(loadDistance + loadDistance + 1, 2);
 	chunks = new Chunk[chunkBufferSize];
-	originChunk = nullptr;
 }
 
 ChunkHandler::~ChunkHandler()
@@ -20,7 +19,6 @@ void ChunkHandler::Update(Vector3 playerPos)
 	LoadChunks(Vector2(playerPos.x, playerPos.z));
 	UnloadChunks();
 	UpdateChunks();
-	CheckOriginChunk(playerPos);
 }
 
 void ChunkHandler::LoadChunks(Vector2 playerPos)
@@ -92,11 +90,6 @@ void ChunkHandler::MarkNeighborChunksForUpdate(Chunk* chunk)
 		chunk->neighborChunks[2]->isMarkedForUpdate = true;
 	if (chunk->neighborChunks[3] != nullptr)
 		chunk->neighborChunks[3]->isMarkedForUpdate = true;
-}
-
-void ChunkHandler::CheckOriginChunk(Vector3 playerPos)
-{
-	originChunk = GetChunkFromWorldPosition(playerPos);
 }
 
 void ChunkHandler::LoadChunk(float x, float y)

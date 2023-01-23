@@ -36,6 +36,7 @@ public:
 	void GenerateBlocks();
 	void UpdateNeighborBlockIds(bool allBlocks);
 	int GetBlockIndex(float x, float y, float z);
+	int GetBlockIndex(int x, int y, int z);
 	int GetBlockIndexInNeighborChunk(float x, float y, float z);
 	void Empty();
 };
