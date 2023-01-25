@@ -12,20 +12,20 @@ Entity::~Entity()
 {
 }
 
-void Entity::CheckOriginChunk(ChunkHandler* chunkHandler, Entity* entityList)
+void Entity::CheckOriginChunk(ChunkHandler* chunkHandler, List<Entity>* entityList)
 {
-	for (int i = 0; i < MAX_ENTITIES; i++)
-	{
-		if (entityList[i].isLoaded)
-			entityList[i].originChunk = chunkHandler->GetChunkFromWorldPosition(entityList[i].transform.position);
-	}
+	for (int i = 0; i < entityList->Size(); i++)
+		entityList->At(i)->originChunk = chunkHandler->GetChunkFromWorldPosition(entityList->At(i)->transform.position);
 }
 
-void Entity::UpdatePositions(Entity* entityList)
+void Entity::Gravity(List<Entity>* entityList)
 {
-	for (int i = 0; i < MAX_ENTITIES; i++)
-	{
-		if (entityList[i].isLoaded)
-			entityList[i].transform.position = entityList[i].transform.position + entityList[i].velocity * TimeHandler::DeltaTime();
-	}
+	for (int i = 0; i < entityList->Size(); i++)
+		entityList->At(i)->velocity.y -= 9.81f;
+}
+
+void Entity::UpdatePositions(List<Entity>* entityList)
+{
+	for (int i = 0; i < entityList->Size(); i++)
+		entityList->At(i)->transform.position = entityList->At(i)->transform.position + entityList->At(i)->velocity * TimeHandler::DeltaTime();
 }

@@ -160,6 +160,18 @@ Chunk* ChunkHandler::GetChunkFromWorldPosition(float x, float y, float z)
 	return GetChunk(GetChunkPosition(x, y, z));
 }
 
+BlockData* ChunkHandler::GetBlockFromWorldPosition(Vector3 vec)
+{
+	return GetBlockFromWorldPosition(vec.x, vec.y, vec.z);
+}
+
+BlockData* ChunkHandler::GetBlockFromWorldPosition(float x, float y, float z)
+{
+	Chunk* chunk = GetChunkFromWorldPosition(x, y, z);
+	Vector3 pos = GetRelativeChunkPosition(x, y, z);
+	return &chunk->blocks[chunk->GetBlockIndex(pos.x, pos.y, pos.z)];
+}
+
 Vector2 ChunkHandler::GetChunkPosition(Vector3 vec)
 {
 	return Vector2(floorf(vec.x / Chunk::chunkWidth), floorf(vec.z / Chunk::chunkWidth));
@@ -181,4 +193,3 @@ Vector3 ChunkHandler::GetRelativeChunkPosition(float x, float y, float z)
 	Vector2 chunkWorldPosition = GetChunkPosition(x, y, z) * Chunk::chunkWidth;
 	return Vector3(x - chunkWorldPosition.x, y, z - chunkWorldPosition.y);
 }
-

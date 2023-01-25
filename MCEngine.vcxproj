@@ -22,13 +22,13 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -95,35 +95,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Blocks\BlockRegister.h" />
     <ClInclude Include="src\Blocks\AirBlock.h" />
     <ClInclude Include="src\Blocks\Block.h" />
+    <ClInclude Include="src\Blocks\BlockRegister.h" />
     <ClInclude Include="src\Blocks\CobblestoneBlock.h" />
     <ClInclude Include="src\Blocks\GrassBlock.h" />
     <ClInclude Include="src\Blocks\WoodBlock.h" />
-    <ClInclude Include="src\Entity\Entity.h" />
-    <ClInclude Include="src\Entity\Physics.h" />
-    <ClInclude Include="src\Renderer\Camera.h" />
     <ClInclude Include="src\Chunk\Chunk.h" />
     <ClInclude Include="src\Chunk\ChunkHandler.h" />
     <ClInclude Include="src\Chunk\ChunkMesh.h" />
     <ClInclude Include="src\Entity\Collider.h" />
     <ClInclude Include="src\Entity\Collision.h" />
     <ClInclude Include="src\Entity\CollisionDetection.h" />
-    <ClInclude Include="src\Math\Constants.h" />
-    <ClInclude Include="src\Time\FunctionTimer.h" />
-    <ClInclude Include="src\Renderer\GLCall.h" />
-    <ClInclude Include="src\Renderer\IndexBuffer.h" />
+    <ClInclude Include="src\Entity\Entity.h" />
+    <ClInclude Include="src\Entity\Physics.h" />
+    <ClInclude Include="src\Entity\PlayerController.h" />
+    <ClInclude Include="src\Entity\Transform.h" />
     <ClInclude Include="src\Input.h" />
     <ClInclude Include="src\List.h" />
-    <ClInclude Include="src\Entity\PlayerController.h" />
+    <ClInclude Include="src\Math\Constants.h" />
+    <ClInclude Include="src\Math\Vector2.h" />
+    <ClInclude Include="src\Math\Vector3.h" />
+    <ClInclude Include="src\Renderer\Camera.h" />
+    <ClInclude Include="src\Renderer\GLCall.h" />
+    <ClInclude Include="src\Renderer\IndexBuffer.h" />
     <ClInclude Include="src\Renderer\Renderer.h" />
     <ClInclude Include="src\Renderer\Shader.h" />
     <ClInclude Include="src\Renderer\Texture.h" />
-    <ClInclude Include="src\Time\TimeHandler.h" />
-    <ClInclude Include="src\Entity\Transform.h" />
-    <ClInclude Include="src\Math\Vector2.h" />
-    <ClInclude Include="src\Math\Vector3.h" />
     <ClInclude Include="src\Renderer\VertexArray.h" />
     <ClInclude Include="src\Renderer\VertexBuffer.h" />
     <ClInclude Include="src\Renderer\VertexBufferLayout.h" />
@@ -134,35 +132,37 @@
     <ClInclude Include="src\Renderer\imgui\stb_rect_pack.h" />
     <ClInclude Include="src\Renderer\imgui\stb_textedit.h" />
     <ClInclude Include="src\Renderer\imgui\stb_truetype.h" />
+    <ClInclude Include="src\Time\FunctionTimer.h" />
+    <ClInclude Include="src\Time\TimeHandler.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Blocks\BlockRegister.cpp" />
     <ClCompile Include="src\Blocks\Block.cpp" />
-    <ClCompile Include="src\Entity\Entity.cpp" />
-    <ClCompile Include="src\Entity\Physics.cpp" />
-    <ClCompile Include="src\Renderer\Camera.cpp" />
+    <ClCompile Include="src\Blocks\BlockRegister.cpp" />
     <ClCompile Include="src\Chunk\Chunk.cpp" />
     <ClCompile Include="src\Chunk\ChunkHandler.cpp" />
     <ClCompile Include="src\Chunk\ChunkMesh.cpp" />
     <ClCompile Include="src\Entity\CollisionDetection.cpp" />
-    <ClCompile Include="src\Time\FunctionTimer.cpp" />
-    <ClCompile Include="src\Renderer\IndexBuffer.cpp" />
+    <ClCompile Include="src\Entity\Entity.cpp" />
+    <ClCompile Include="src\Entity\Physics.cpp" />
+    <ClCompile Include="src\Entity\PlayerController.cpp" />
+    <ClCompile Include="src\Entity\Transform.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="src\Entity\PlayerController.cpp" />
+    <ClCompile Include="src\Math\Vector2.cpp" />
+    <ClCompile Include="src\Math\Vector3.cpp" />
+    <ClCompile Include="src\Renderer\Camera.cpp" />
+    <ClCompile Include="src\Renderer\IndexBuffer.cpp" />
     <ClCompile Include="src\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Renderer\Shader.cpp" />
     <ClCompile Include="src\Renderer\Texture.cpp" />
-    <ClCompile Include="src\Time\TimeHandler.cpp" />
-    <ClCompile Include="src\Entity\Transform.cpp" />
-    <ClCompile Include="src\Math\Vector2.cpp" />
-    <ClCompile Include="src\Math\Vector3.cpp" />
     <ClCompile Include="src\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Renderer\VertexBuffer.cpp" />
     <ClCompile Include="src\Renderer\imgui\imgui.cpp" />
     <ClCompile Include="src\Renderer\imgui\imgui_demo.cpp" />
     <ClCompile Include="src\Renderer\imgui\imgui_draw.cpp" />
     <ClCompile Include="src\Renderer\imgui\imgui_impl_glfw_gl3.cpp" />
+    <ClCompile Include="src\Time\FunctionTimer.cpp" />
+    <ClCompile Include="src\Time\TimeHandler.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

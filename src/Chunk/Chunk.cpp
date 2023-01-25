@@ -196,3 +196,13 @@ int Chunk::GetBlockIndexInNeighborChunk(float x, float y, float z)
     int index = y * (chunkWidth * chunkWidth) + z * chunkWidth + x;
     return index;
 }
+
+Vector3 Chunk::GetBlockWorldPosition(Vector3 vec)
+{
+    return GetBlockWorldPosition(vec.x, vec.y, vec.z);
+}
+
+Vector3 Chunk::GetBlockWorldPosition(float x, float y, float z)
+{
+    return Vector3(x + chunkPos.x * chunkWidth, y, z + chunkPos.y * chunkWidth);
+}

@@ -4,16 +4,33 @@
     <Filter Include="Blocks">
       <UniqueIdentifier>{2366B4A9-0F08-DF7F-F8C2-F2D3E40366D0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="imgui">
-      <UniqueIdentifier>{0098A80F-6CAC-D0C0-352E-7420A101CDF1}</UniqueIdentifier>
+    <Filter Include="Chunk">
+      <UniqueIdentifier>{9E71F60C-0A86-1EBE-D307-C21D3FDB1AEF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity">
+      <UniqueIdentifier>{A2E9DAB0-8E8B-0587-7746-19DB63878CD7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{AFF4887C-9B2B-8A0D-4418-7010302E060F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{7CCE658F-689B-C09A-91B4-AE427DE0F528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\imgui">
+      <UniqueIdentifier>{E6C889E2-D296-7DE8-BB2A-EE0EA797594D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Time">
+      <UniqueIdentifier>{74EC8C7C-6023-8E0D-0910-7410F5250A0F}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Blocks\BlockRegister.h" />
     <ClInclude Include="src\Blocks\AirBlock.h">
       <Filter>Blocks</Filter>
     </ClInclude>
     <ClInclude Include="src\Blocks\Block.h">
+      <Filter>Blocks</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Blocks\BlockRegister.h">
       <Filter>Blocks</Filter>
     </ClInclude>
     <ClInclude Include="src\Blocks\CobblestoneBlock.h">
@@ -25,91 +42,179 @@
     <ClInclude Include="src\Blocks\WoodBlock.h">
       <Filter>Blocks</Filter>
     </ClInclude>
-    <ClInclude Include="src\Renderer\Camera.h" />
-    <ClInclude Include="src\Chunk\Chunk.h" />
-    <ClInclude Include="src\Chunk\ChunkHandler.h" />
-    <ClInclude Include="src\Chunk\ChunkMesh.h" />
-    <ClInclude Include="src\Entity\Collider.h" />
-    <ClInclude Include="src\Entity\Collision.h" />
-    <ClInclude Include="src\Entity\CollisionDetection.h" />
-    <ClInclude Include="src\Math\Constants.h" />
-    <ClInclude Include="src\Time\FunctionTimer.h" />
-    <ClInclude Include="src\Renderer\GLCall.h" />
-    <ClInclude Include="src\Renderer\IndexBuffer.h" />
+    <ClInclude Include="src\Chunk\Chunk.h">
+      <Filter>Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Chunk\ChunkHandler.h">
+      <Filter>Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Chunk\ChunkMesh.h">
+      <Filter>Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity\Collider.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity\Collision.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity\CollisionDetection.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity\Entity.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity\Physics.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity\PlayerController.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity\Transform.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
     <ClInclude Include="src\Input.h" />
     <ClInclude Include="src\List.h" />
-    <ClInclude Include="src\Entity\PlayerController.h" />
-    <ClInclude Include="src\Renderer\Renderer.h" />
-    <ClInclude Include="src\Renderer\Shader.h" />
-    <ClInclude Include="src\Renderer\Texture.h" />
-    <ClInclude Include="src\Time\TimeHandler.h" />
-    <ClInclude Include="src\Entity\Transform.h" />
-    <ClInclude Include="src\Math\Vector2.h" />
-    <ClInclude Include="src\Math\Vector3.h" />
-    <ClInclude Include="src\Renderer\VertexArray.h" />
-    <ClInclude Include="src\Renderer\VertexBuffer.h" />
-    <ClInclude Include="src\Renderer\VertexBufferLayout.h" />
+    <ClInclude Include="src\Math\Constants.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Math\Vector2.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Math\Vector3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\Camera.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\GLCall.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\IndexBuffer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\Renderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\Shader.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\Texture.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\VertexArray.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\VertexBuffer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\VertexBufferLayout.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Renderer\imgui\imconfig.h">
-      <Filter>imgui</Filter>
+      <Filter>Renderer\imgui</Filter>
     </ClInclude>
     <ClInclude Include="src\Renderer\imgui\imgui.h">
-      <Filter>imgui</Filter>
+      <Filter>Renderer\imgui</Filter>
     </ClInclude>
     <ClInclude Include="src\Renderer\imgui\imgui_impl_glfw_gl3.h">
-      <Filter>imgui</Filter>
+      <Filter>Renderer\imgui</Filter>
     </ClInclude>
     <ClInclude Include="src\Renderer\imgui\imgui_internal.h">
-      <Filter>imgui</Filter>
+      <Filter>Renderer\imgui</Filter>
     </ClInclude>
     <ClInclude Include="src\Renderer\imgui\stb_rect_pack.h">
-      <Filter>imgui</Filter>
+      <Filter>Renderer\imgui</Filter>
     </ClInclude>
     <ClInclude Include="src\Renderer\imgui\stb_textedit.h">
-      <Filter>imgui</Filter>
+      <Filter>Renderer\imgui</Filter>
     </ClInclude>
     <ClInclude Include="src\Renderer\imgui\stb_truetype.h">
-      <Filter>imgui</Filter>
+      <Filter>Renderer\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Entity\Physics.h" />
-    <ClInclude Include="src\Entity\Entity.h" />
+    <ClInclude Include="src\Time\FunctionTimer.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Time\TimeHandler.h">
+      <Filter>Time</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Blocks\BlockRegister.cpp" />
     <ClCompile Include="src\Blocks\Block.cpp">
       <Filter>Blocks</Filter>
     </ClCompile>
-    <ClCompile Include="src\Renderer\Camera.cpp" />
-    <ClCompile Include="src\Chunk\Chunk.cpp" />
-    <ClCompile Include="src\Chunk\ChunkHandler.cpp" />
-    <ClCompile Include="src\Chunk\ChunkMesh.cpp" />
-    <ClCompile Include="src\Entity\CollisionDetection.cpp" />
-    <ClCompile Include="src\Time\FunctionTimer.cpp" />
-    <ClCompile Include="src\Renderer\IndexBuffer.cpp" />
+    <ClCompile Include="src\Blocks\BlockRegister.cpp">
+      <Filter>Blocks</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chunk\Chunk.cpp">
+      <Filter>Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chunk\ChunkHandler.cpp">
+      <Filter>Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chunk\ChunkMesh.cpp">
+      <Filter>Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity\CollisionDetection.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity\Entity.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity\Physics.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity\PlayerController.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity\Transform.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="src\Entity\PlayerController.cpp" />
-    <ClCompile Include="src\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\Renderer\Shader.cpp" />
-    <ClCompile Include="src\Renderer\Texture.cpp" />
-    <ClCompile Include="src\Time\TimeHandler.cpp" />
-    <ClCompile Include="src\Entity\Transform.cpp" />
-    <ClCompile Include="src\Math\Vector2.cpp" />
-    <ClCompile Include="src\Math\Vector3.cpp" />
-    <ClCompile Include="src\Renderer\VertexArray.cpp" />
-    <ClCompile Include="src\Renderer\VertexBuffer.cpp" />
+    <ClCompile Include="src\Math\Vector2.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Math\Vector3.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\Camera.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\IndexBuffer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\Renderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\Shader.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\Texture.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\VertexArray.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\VertexBuffer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Renderer\imgui\imgui.cpp">
-      <Filter>imgui</Filter>
+      <Filter>Renderer\imgui</Filter>
     </ClCompile>
     <ClCompile Include="src\Renderer\imgui\imgui_demo.cpp">
-      <Filter>imgui</Filter>
+      <Filter>Renderer\imgui</Filter>
     </ClCompile>
     <ClCompile Include="src\Renderer\imgui\imgui_draw.cpp">
-      <Filter>imgui</Filter>
+      <Filter>Renderer\imgui</Filter>
     </ClCompile>
     <ClCompile Include="src\Renderer\imgui\imgui_impl_glfw_gl3.cpp">
-      <Filter>imgui</Filter>
+      <Filter>Renderer\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Entity\Physics.cpp" />
-    <ClCompile Include="src\Entity\Entity.cpp" />
+    <ClCompile Include="src\Time\FunctionTimer.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Time\TimeHandler.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

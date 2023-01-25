@@ -17,7 +17,6 @@ public:
 	int chunkBufferSize = 0;
 
 	Chunk* chunks;
-	//List<Chunk> chunks;
 
 	ChunkHandler();
 	~ChunkHandler();
@@ -27,6 +26,9 @@ public:
 	Chunk* GetChunk(float x, float y);
 	Chunk* GetChunkFromWorldPosition(Vector3 vec);
 	Chunk* GetChunkFromWorldPosition(float x, float y, float z);
+	BlockData* GetBlockFromWorldPosition(Vector3 vec);
+	BlockData* GetBlockFromWorldPosition(float x, float y, float z);
+	
 	static Vector2 GetChunkPosition(Vector3 vec);
 	static Vector2 GetChunkPosition(float x, float y, float z);
 	static Vector3 GetRelativeChunkPosition(Vector3 vec);

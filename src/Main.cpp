@@ -3,6 +3,7 @@
 #include "Entity/CollisionDetection.h"
 #include "Entity/Physics.h"
 #include "Entity/PlayerController.h"
+#include "List.h"
 
 #include "Renderer/imgui/imgui.h"
 #include "Renderer/imgui/imgui_impl_glfw_gl3.h"
@@ -134,11 +135,12 @@ int main(void)
     ChunkHandler chunkHandler;
     std::cout << "Chunk buffer:" << chunkHandler.chunkBufferSize << std::endl;
 
-    Entity* entityList = new Entity[Entity::MAX_ENTITIES];
+    List<Entity> entityList(Entity::MAX_ENTITIES);
+    entityList.Add(Entity());
 
     PlayerController playerController;
     playerController.SetCamera(&camera);
-    playerController.playerEntity = &entityList[0];
+    playerController.playerEntity = entityList[0];
     playerController.playerEntity->transform.SetRotation(0, 180, 0);
     playerController.playerEntity->transform.SetPosition(0, 70, 0);
     playerController.playerEntity->isLoaded = true;
@@ -163,13 +165,15 @@ int main(void)
         //Handle chunk logic like loading
         chunkHandler.Update(playerController.playerEntity->transform.position);
         //Update entites chunk
-        Entity::CheckOriginChunk(&chunkHandler, entityList);
+        Entity::CheckOriginChunk(&chunkHandler, &entityList);
+        //Gravity
+        Entity::Gravity(&entityList);
         //Collisions
-        CollisionDetection::CheckChunkEntityCollision(&chunkHandler, entityList);
+        CollisionDetection::CheckChunkEntityCollision(&chunkHandler, &entityList);
         //Physics
         Physics::BlockCollisions(CollisionDetection::blockCollisions);
         //Update entity positions after physics and collisions
-        Entity::UpdatePositions(entityList);
+        Entity::UpdatePositions(&entityList);
 
         //Render last
         renderer.Clear();
@@ -180,9 +184,6 @@ int main(void)
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
-
-   
-    delete[] entityList;
 
     glfwDestroyWindow(window);
     glfwTerminate();

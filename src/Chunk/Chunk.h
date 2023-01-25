@@ -1,6 +1,7 @@
 #pragma once
 #include "ChunkMesh.h"
 #include "Math/Vector2.h"
+#include "Math/Vector3.h"
 
 class Chunk
 {
@@ -38,5 +39,7 @@ public:
 	int GetBlockIndex(float x, float y, float z);
 	int GetBlockIndex(int x, int y, int z);
 	int GetBlockIndexInNeighborChunk(float x, float y, float z);
+	Vector3 GetBlockWorldPosition(Vector3 vec);
+	Vector3 GetBlockWorldPosition(float x, float y, float z);
 	void Empty();
 };
