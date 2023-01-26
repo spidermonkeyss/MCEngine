@@ -8,4 +8,5 @@ private:
 	static void PushEntityOutOfBlock(BlockCollision blockCollision);
 public:
 	static void BlockCollisions(std::vector<BlockCollision> blockCollisions);
+	static void UpdatePositions(List<Entity>* entityList);
 };

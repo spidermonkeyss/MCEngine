@@ -1,7 +1,4 @@
 #include "Entity.h"
-#include "Time/TimeHandler.h"
-
-const int Entity::MAX_ENTITIES = 16;
 
 Entity::Entity()
 	:transform(Transform()), originChunk(nullptr), velocity(Vector3())
@@ -22,10 +19,4 @@ void Entity::Gravity(List<Entity>* entityList)
 {
 	for (int i = 0; i < entityList->Size(); i++)
 		entityList->At(i)->velocity.y -= 9.81f;
-}
-
-void Entity::UpdatePositions(List<Entity>* entityList)
-{
-	for (int i = 0; i < entityList->Size(); i++)
-		entityList->At(i)->transform.position = entityList->At(i)->transform.position + entityList->At(i)->velocity * TimeHandler::DeltaTime();
 }

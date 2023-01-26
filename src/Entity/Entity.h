@@ -7,10 +7,8 @@
 class Entity
 {
 private:
-	BoxCollider collider{ Vector3(), Vector3(1, 1, 1) };
+	BoxCollider collider{ Vector3(), Vector3(1.0f, 1.0f, 1.0f) };
 public:
-	const static int MAX_ENTITIES;
-
 	Transform transform;
 	Vector3 velocity;
 	Chunk* originChunk;
@@ -22,6 +20,5 @@ public:
 
 	static void CheckOriginChunk(ChunkHandler* chunkHandler, List<Entity>* entityList);
 	static void Gravity(List<Entity>* entityList);
-	static void UpdatePositions(List<Entity>* entityList);
 	inline BoxCollider GetCollider() { return collider; }
 };

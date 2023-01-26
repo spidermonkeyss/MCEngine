@@ -50,14 +50,15 @@ void ShowChunkInImGui(Chunk* chunk)
 void RunImGuiFrame(ChunkHandler* chunkHandler, PlayerController* playerController)
 {
     ImGui_ImplGlfwGL3_NewFrame();
+    ImGui::SetWindowSize(ImVec2((float)500, (float)400));
     
-    static bool demo = false;
-    ImGui::ShowDemoWindow(&demo);
+    //static bool demo = false;
+    //ImGui::ShowDemoWindow(&demo);
         
-    ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+    //ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
    
-    ImGui::Text(("Loaded Chunks:" + std::to_string(chunkHandler->loadedChunks)).c_str());
-    ImGui::Spacing();
+    //ImGui::Text(("Loaded Chunks:" + std::to_string(chunkHandler->loadedChunks)).c_str());
+    //ImGui::Spacing();
     ImGui::Text(("World Position:" + playerController->playerEntity->transform.position.ToString()).c_str());
     ImGui::Text(("Chunk Position:" + chunkHandler->GetRelativeChunkPosition(playerController->playerEntity->transform.position).ToString()).c_str());
     ImGui::Text(("Velocity:" + playerController->playerEntity->velocity.ToString()).c_str());
@@ -67,15 +68,15 @@ void RunImGuiFrame(ChunkHandler* chunkHandler, PlayerController* playerControlle
         ImGui::Text(CollisionDetection::blockCollisions[i].block->position.ToString().c_str());
         ImGui::Text(std::to_string(CollisionDetection::blockCollisions[i].blockFaceCollidedWith).c_str());
     }
-    ImGui::Text("Origin Chunk");
-    if (playerController->playerEntity->originChunk)
-        ImGui::Text(playerController->playerEntity->originChunk->chunkPos.ToString().c_str());
-    else
-        ImGui::Text("No origin chunk");
+    //ImGui::Text("Origin Chunk");
+    //if (playerController->playerEntity->originChunk)
+    //    ImGui::Text(playerController->playerEntity->originChunk->chunkPos.ToString().c_str());
+    //else
+    //    ImGui::Text("No origin chunk");
 
-    ImGui::Text("Chunks");
-    for (int i = 0; i < chunkHandler->chunkBufferSize; i++)
-        ShowChunkInImGui(&chunkHandler->chunks[i]);
+    //ImGui::Text("Chunks");
+    //for (int i = 0; i < chunkHandler->chunkBufferSize; i++)
+    //    ShowChunkInImGui(&chunkHandler->chunks[i]);
 
     ImGui::Render();
     ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
@@ -94,7 +95,7 @@ int main(void)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(1600, 900, "Hello World", NULL, NULL);
+    window = glfwCreateWindow(1200, 800, "Hello World", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -135,14 +136,14 @@ int main(void)
     ChunkHandler chunkHandler;
     std::cout << "Chunk buffer:" << chunkHandler.chunkBufferSize << std::endl;
 
-    List<Entity> entityList(Entity::MAX_ENTITIES);
+    List<Entity> entityList(4);
     entityList.Add(Entity());
 
     PlayerController playerController;
     playerController.SetCamera(&camera);
     playerController.playerEntity = entityList[0];
     playerController.playerEntity->transform.SetRotation(0, 180, 0);
-    playerController.playerEntity->transform.SetPosition(0, 70, 0);
+    playerController.playerEntity->transform.SetPosition(0, 80, 0);
     playerController.playerEntity->isLoaded = true;
 
     Block::blockShader->Bind();
@@ -156,26 +157,32 @@ int main(void)
     {
         //Frame pipeline
 
-        //Update Time
+        /*--Time--*/
         TimeHandler::UpdateTime();
-        //Get user inputs
-        Input::Update();
-        //Do player logic and update positions
-        playerController.Update();
+
+        /*--Chunks--*/
         //Handle chunk logic like loading
         chunkHandler.Update(playerController.playerEntity->transform.position);
         //Update entites chunk
         Entity::CheckOriginChunk(&chunkHandler, &entityList);
+
+        /*--Logic--*/
+        //Get user inputs
+        Input::Update();
+        //Do player logic and update velocity
+        playerController.Update();
+        
+        /*--Phyiscs and positions--*/
         //Gravity
         Entity::Gravity(&entityList);
+        //First phyiscs update before collision
+        Physics::UpdatePositions(&entityList);
         //Collisions
         CollisionDetection::CheckChunkEntityCollision(&chunkHandler, &entityList);
-        //Physics
+        //Resolve block collisions
         Physics::BlockCollisions(CollisionDetection::blockCollisions);
-        //Update entity positions after physics and collisions
-        Entity::UpdatePositions(&entityList);
 
-        //Render last
+        /*--Render--*/
         renderer.Clear();
         renderer.Render(&camera, &chunkHandler, &playerController);
 
