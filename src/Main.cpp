@@ -65,7 +65,7 @@ void RunImGuiFrame(ChunkHandler* chunkHandler, PlayerController* playerControlle
     for (int i = 0; i < CollisionDetection::blockCollisions.size(); i++)
     {
         ImGui::Text(CollisionDetection::blockCollisions[i].block->position.ToString().c_str());
-        ImGui::Text(std::to_string((int)CollisionDetection::blockCollisions[i].blockFaceCollidedWith).c_str());
+        ImGui::Text(std::to_string(CollisionDetection::blockCollisions[i].blockFaceCollidedWith).c_str());
     }
     ImGui::Text("Origin Chunk");
     if (playerController->playerEntity->originChunk)

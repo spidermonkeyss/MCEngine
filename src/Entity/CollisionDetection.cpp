@@ -1,5 +1,4 @@
 #include "CollisionDetection.h"
-
 #include "Entity/Collider.h"
 
 std::vector<BlockCollision> CollisionDetection::blockCollisions;
@@ -47,18 +46,54 @@ std::vector<BlockCollision> CollisionDetection::AABBCollision(ChunkHandler* chun
 			bc.entity = entity;
 
 			Vector3 collisionNormalVec = (entity->transform.position - blockColliders[i].startPoint).Normal();
-			if (collisionNormalVec.y > unit_circle_45_degrees)
-				bc.blockFaceCollidedWith = BlockCollision::top;
-			else if (collisionNormalVec.y < -unit_circle_45_degrees)
-				bc.blockFaceCollidedWith = BlockCollision::bot;
-			else if (collisionNormalVec.z > unit_circle_45_degrees)
-				bc.blockFaceCollidedWith = BlockCollision::South;
-			else if (collisionNormalVec.z < -unit_circle_45_degrees)
-				bc.blockFaceCollidedWith = BlockCollision::North;
-			else if (collisionNormalVec.x > unit_circle_45_degrees)
-				bc.blockFaceCollidedWith = BlockCollision::East;
-			else if (collisionNormalVec.x < -unit_circle_45_degrees)
-				bc.blockFaceCollidedWith = BlockCollision::West;
+			if (abs(collisionNormalVec.y) > abs(collisionNormalVec.x))
+			{
+				//y biggest
+				if (abs(collisionNormalVec.y) > abs(collisionNormalVec.z))
+				{
+					if (collisionNormalVec.y > 0)
+						bc.blockFaceCollidedWith = BlockCollision::top;
+					else
+						bc.blockFaceCollidedWith = BlockCollision::bot;
+				}
+				//z biggest
+				else
+				{
+					if (collisionNormalVec.z > 0)
+						bc.blockFaceCollidedWith = BlockCollision::South;
+					else
+						bc.blockFaceCollidedWith = BlockCollision::North;
+				}
+			}
+			//z biggest
+			else if (abs(collisionNormalVec.z) > abs(collisionNormalVec.x))
+			{
+				if (collisionNormalVec.z > 0)
+					bc.blockFaceCollidedWith = BlockCollision::South;
+				else
+					bc.blockFaceCollidedWith = BlockCollision::North;
+			}
+			//x biggest
+			else
+			{
+				if (collisionNormalVec.x > 0)
+					bc.blockFaceCollidedWith = BlockCollision::East;
+				else
+					bc.blockFaceCollidedWith = BlockCollision::West;
+			}
+
+			//if (collisionNormalVec.y > unit_circle_45_degrees)
+			//	bc.blockFaceCollidedWith = BlockCollision::top;
+			//else if (collisionNormalVec.y < -unit_circle_45_degrees)
+			//	bc.blockFaceCollidedWith = BlockCollision::bot;
+			//else if (collisionNormalVec.z > unit_circle_45_degrees)
+			//	bc.blockFaceCollidedWith = BlockCollision::South;
+			//else if (collisionNormalVec.z < -unit_circle_45_degrees)
+			//	bc.blockFaceCollidedWith = BlockCollision::North;
+			//else if (collisionNormalVec.x > unit_circle_45_degrees)
+			//	bc.blockFaceCollidedWith = BlockCollision::East;
+			//else if (collisionNormalVec.x < -unit_circle_45_degrees)
+			//	bc.blockFaceCollidedWith = BlockCollision::West;
 
 			collisions.push_back(bc);
 		}
