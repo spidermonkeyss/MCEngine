@@ -4,8 +4,13 @@
 
 struct BlockCollision
 {
-	enum BlockFace { North, East, South, West, bot, top };
+	enum BlockFace { North, East, South, West, bot, top, unresolved };
 	Entity* entity;
-	BlockData* block;
+	//BlockData* block;
+	BlockCollider blockCollider;
 	BlockFace blockFaceCollidedWith;
+	bool resolve;
+	bool canPushX = true;
+	bool canPushY = true;
+	bool canPushZ = true;
 };

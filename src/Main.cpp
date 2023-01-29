@@ -63,10 +63,10 @@ void RunImGuiFrame(ChunkHandler* chunkHandler, PlayerController* playerControlle
     ImGui::Text(("Chunk Position:" + chunkHandler->GetRelativeChunkPosition(playerController->playerEntity->transform.position).ToString()).c_str());
     ImGui::Text(("Velocity:" + playerController->playerEntity->velocity.ToString()).c_str());
     ImGui::Text("Collisions");
-    for (int i = 0; i < CollisionDetection::blockCollisions.size(); i++)
+    for (int i = 0; i < CollisionDetection::blockCollisionsToResolve.size(); i++)
     {
-        ImGui::Text(CollisionDetection::blockCollisions[i].block->position.ToString().c_str());
-        ImGui::Text(std::to_string(CollisionDetection::blockCollisions[i].blockFaceCollidedWith).c_str());
+        ImGui::Text(CollisionDetection::blockCollisionsToResolve[i].blockCollider.block->position.ToString().c_str());
+        ImGui::Text(std::to_string(CollisionDetection::blockCollisionsToResolve[i].blockFaceCollidedWith).c_str());
     }
     //ImGui::Text("Origin Chunk");
     //if (playerController->playerEntity->originChunk)
@@ -143,7 +143,7 @@ int main(void)
     playerController.SetCamera(&camera);
     playerController.playerEntity = entityList[0];
     playerController.playerEntity->transform.SetRotation(0, 180, 0);
-    playerController.playerEntity->transform.SetPosition(0, 80, 0);
+    playerController.playerEntity->transform.SetPosition(2, 80, 2);
     playerController.playerEntity->isLoaded = true;
 
     Block::blockShader->Bind();
@@ -180,7 +180,7 @@ int main(void)
         //Collisions
         CollisionDetection::CheckChunkEntityCollision(&chunkHandler, &entityList);
         //Resolve block collisions
-        Physics::BlockCollisions(CollisionDetection::blockCollisions);
+        Physics::BlockCollisions(CollisionDetection::blockCollisionsToResolve);
 
         /*--Render--*/
         renderer.Clear();
