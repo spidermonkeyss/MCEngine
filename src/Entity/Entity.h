@@ -10,6 +10,7 @@ private:
 	BoxCollider collider{ Vector3(), Vector3(1.0f, 1.0f, 1.0f) };
 public:
 	Transform transform;
+	Transform preVelocityTransform;
 	Vector3 velocity;
 	Chunk* originChunk;
 

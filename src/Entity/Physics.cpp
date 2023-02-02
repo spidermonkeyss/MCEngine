@@ -47,5 +47,8 @@ void Physics::BlockCollisions(std::vector<BlockCollision> blockCollisions)
 void Physics::UpdatePositions(List<Entity>* entityList)
 {
 	for (int i = 0; i < entityList->Size(); i++)
+	{
+		entityList->At(i)->preVelocityTransform = entityList->At(i)->transform;
 		entityList->At(i)->transform.position = entityList->At(i)->transform.position + entityList->At(i)->velocity * TimeHandler::DeltaTime();
+	}
 }

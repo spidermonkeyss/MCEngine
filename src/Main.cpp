@@ -55,24 +55,24 @@ void RunImGuiFrame(ChunkHandler* chunkHandler, PlayerController* playerControlle
     //static bool demo = false;
     //ImGui::ShowDemoWindow(&demo);
         
-    //ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+    ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
    
-    //ImGui::Text(("Loaded Chunks:" + std::to_string(chunkHandler->loadedChunks)).c_str());
-    //ImGui::Spacing();
+    ImGui::Text(("Loaded Chunks:" + std::to_string(chunkHandler->loadedChunks)).c_str());
+    ImGui::Spacing();
     ImGui::Text(("World Position:" + playerController->playerEntity->transform.position.ToString()).c_str());
     ImGui::Text(("Chunk Position:" + chunkHandler->GetRelativeChunkPosition(playerController->playerEntity->transform.position).ToString()).c_str());
     ImGui::Text(("Velocity:" + playerController->playerEntity->velocity.ToString()).c_str());
     ImGui::Text("Collisions");
+    ImGui::Text("Origin Chunk");
+    if (playerController->playerEntity->originChunk)
+        ImGui::Text(playerController->playerEntity->originChunk->chunkPos.ToString().c_str());
+    else
+        ImGui::Text("No origin chunk");
     for (int i = 0; i < CollisionDetection::blockCollisionsToResolve.size(); i++)
     {
         ImGui::Text(CollisionDetection::blockCollisionsToResolve[i].blockCollider.block->position.ToString().c_str());
         ImGui::Text(std::to_string(CollisionDetection::blockCollisionsToResolve[i].blockFaceCollidedWith).c_str());
     }
-    //ImGui::Text("Origin Chunk");
-    //if (playerController->playerEntity->originChunk)
-    //    ImGui::Text(playerController->playerEntity->originChunk->chunkPos.ToString().c_str());
-    //else
-    //    ImGui::Text("No origin chunk");
 
     //ImGui::Text("Chunks");
     //for (int i = 0; i < chunkHandler->chunkBufferSize; i++)
