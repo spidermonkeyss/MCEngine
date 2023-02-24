@@ -7,7 +7,7 @@ class PlayerController
 {
 private:
 	float mouseSpeed = 2.0f;
-	float moveSpeed = 15.0f;
+	float moveSpeed = 5.0f;
 	Camera* camera;
 public:
 	Entity* playerEntity;

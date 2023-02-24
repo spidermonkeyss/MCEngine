@@ -37,21 +37,31 @@ void CollisionDetection::AABBCollision(ChunkHandler* chunkHandler, Entity* entit
 		CheckBlockCollider(entity, blockColliders[i]);
 }
 
-bool CollisionDetection::DoAABB(Vector3 box1Start, Vector3 box1End, Vector3 box2Start, Vector3 box2End)
+bool CollisionDetection::DoAABB(Entity* entity,  BlockCollider blockCollider)
 {
+	//Get the points of collider in chunk space
+	Vector3 box1Start = (entity->transform.position - (entity->GetCollider().length / 2)) + entity->GetCollider().offset;
+	Vector3 box1End = box1Start + entity->GetCollider().length;
+	Vector3 box2Start = blockCollider.startPoint;
+	Vector3 box2End = blockCollider.endPoint;
+
 	if (box2Start.x <= box1End.x && box2End.x >= box1Start.x && box2End.y >= box1Start.y && box2Start.y <= box1End.y && box2Start.z <= box1End.z && box2End.z >= box1Start.z)
 		return true;	
 	return false;
 }
 
+bool CollisionDetection::DoAABBSweep(Entity* entity, BlockCollider blockCollider)
+{
+	entity->preVelocityTransform.position;
+	entity->transform.position;
+	blockCollider.worldPosition;
+	return false;
+}
+
 void CollisionDetection::CheckBlockCollider(Entity* entity, BlockCollider blockCollider) 
 {
-	//Get the points of collider in chunk space
-	Vector3 startPoint = (entity->transform.position - (entity->GetCollider().length / 2)) + entity->GetCollider().offset;
-	Vector3 endPoint = startPoint + entity->GetCollider().length;
-
 	//Check for basic overlapping first
-	if (DoAABB(startPoint, endPoint, blockCollider.startPoint, blockCollider.endPoint))
+	if (DoAABB(entity, blockCollider))
 	{
 		BlockCollision bc;
 		bc.blockCollider = blockCollider;
@@ -85,17 +95,17 @@ void CollisionDetection::CheckBlockCollider(Entity* entity, BlockCollider blockC
 		blockCollisions.push_back(bc);
 	}
 	//Check sweep
-	else
+	else if (DoAABBSweep(entity, blockCollider))
 	{
 
 	}
 }
 
-void CollisionDetection::CheckBlockCollisionFace(Entity* entity, BlockCollision* bc)
+void CollisionDetection::CheckBlockCollisionFace(BlockCollision* bc)
 {
 	bc->blockFaceCollidedWith = BlockCollision::unresolved;
-
-	Vector3 collisionNormalVec = (entity->transform.position - bc->blockCollider.worldPosition).Normal();
+	
+	Vector3 collisionNormalVec = (bc->entity->transform.position - bc->blockCollider.worldPosition).Normal();
 	if (abs(collisionNormalVec.y) > abs(collisionNormalVec.x))
 	{
 		//y biggest
@@ -136,6 +146,8 @@ void CollisionDetection::CheckBlockCollisionFace(Entity* entity, BlockCollision*
 		bc->resolve = false;
 }
 
+//Find all blocks entity is touching them determine which way to push the entity for resolution
+//Doing this after getting all collisions fixes edge catching on blocks on the saem level
 void CollisionDetection::CheckChunkEntityCollision(ChunkHandler* chunkHandler, List<Entity>* entities)
 {
 	blockCollisionsToResolve.clear();
@@ -145,7 +157,8 @@ void CollisionDetection::CheckChunkEntityCollision(ChunkHandler* chunkHandler, L
 	//Add collisions to total collision
 	for (int i = 0; i < blockCollisions.size(); i++)
 	{
-		CheckBlockCollisionFace(blockCollisions[i].entity, &blockCollisions[i]);
+		//Check collision face after all collisions are checked
+		CheckBlockCollisionFace(&blockCollisions[i]);
 		if (blockCollisions[i].resolve)
 			blockCollisionsToResolve.push_back(blockCollisions[i]);
 	}

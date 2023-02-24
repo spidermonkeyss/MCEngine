@@ -7,6 +7,6 @@ static class Physics
 private:
 	static void ResolveBlockCollision(BlockCollision blockCollision);
 public:
-	static void BlockCollisions(std::vector<BlockCollision> blockCollisions);
+	static void ResolveBlockCollisions(std::vector<BlockCollision> blockCollisions);
 	static void UpdatePositions(List<Entity>* entityList);
 };

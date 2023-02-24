@@ -107,7 +107,7 @@ int main(void)
     glfwSwapInterval(1);
     glfwSetKeyCallback(window, key_callback);
     glfwSetCursorPosCallback(window, cursor_position_callback);
-    GLCall(glPolygonMode(GL_FRONT_AND_BACK, GL_LINE));
+    //GLCall(glPolygonMode(GL_FRONT_AND_BACK, GL_LINE));
     GLCall(glEnable(GL_CULL_FACE));
     GLCall(glFrontFace(GL_CCW));
     GLCall(glEnable(GL_DEPTH_TEST));
@@ -180,7 +180,7 @@ int main(void)
         //Collisions
         CollisionDetection::CheckChunkEntityCollision(&chunkHandler, &entityList);
         //Resolve block collisions
-        Physics::BlockCollisions(CollisionDetection::blockCollisionsToResolve);
+        Physics::ResolveBlockCollisions(CollisionDetection::blockCollisionsToResolve);
 
         /*--Render--*/
         renderer.Clear();

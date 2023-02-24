@@ -7,7 +7,7 @@
 class Entity
 {
 private:
-	BoxCollider collider{ Vector3(), Vector3(1.0f, 1.0f, 1.0f) };
+	EntityBoxCollider collider{ Vector3(), Vector3(1.0f, 1.0f, 1.0f) };
 public:
 	Transform transform;
 	Transform preVelocityTransform;
@@ -21,5 +21,5 @@ public:
 
 	static void CheckOriginChunk(ChunkHandler* chunkHandler, List<Entity>* entityList);
 	static void Gravity(List<Entity>* entityList);
-	inline BoxCollider GetCollider() { return collider; }
+	inline EntityBoxCollider GetCollider() { return collider; }
 };

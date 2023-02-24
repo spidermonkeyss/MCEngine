@@ -2,7 +2,7 @@
 #include "Math/Vector3.h"
 #include "Blocks/Block.h"
 
-struct BoxCollider
+struct EntityBoxCollider
 {
 	Vector3 offset;
 	Vector3 length;
