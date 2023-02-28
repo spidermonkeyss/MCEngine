@@ -1,39 +1,32 @@
 #include "PlayerController.h"
 #include "Time/TimeHandler.h"
-#include "Physics/RayCast.h"
+#include "Physics/Physics.h"
 
 void PlayerController::Update(ChunkHandler* chunkHandler)
 {
     //Camera control
     playerEntity->transform.rotation.y -= mouseSpeed * TimeHandler::DeltaTime() * Input::GetMouseDeltaX();
     playerEntity->transform.rotation.x -= mouseSpeed * TimeHandler::DeltaTime() * Input::GetMouseDeltaY();
-
-    //Movement control
-    //if (Input::KeyPressed(KeyCode::w))
-    //    playerEntity->transform.position = playerEntity->transform.position + playerEntity->transform.Forward() * moveSpeed * TimeHandler::DeltaTime();
-    //if (Input::KeyPressed(KeyCode::s))                                  
-    //    playerEntity->transform.position = playerEntity->transform.position - playerEntity->transform.Forward() * moveSpeed * TimeHandler::DeltaTime();
-    //if (Input::KeyPressed(KeyCode::a))                                  
-    //    playerEntity->transform.position = playerEntity->transform.position - playerEntity->transform.Right() * moveSpeed * TimeHandler::DeltaTime();
-    //if (Input::KeyPressed(KeyCode::d))                                  
-    //    playerEntity->transform.position = playerEntity->transform.position + playerEntity->transform.Right() * moveSpeed * TimeHandler::DeltaTime();
-
+   
     playerEntity->velocity.SetVector(0, 0, 0);
 
-    if (Input::KeyPressed(KeyCode::w))
-        playerEntity->velocity = playerEntity->transform.Forward() * moveSpeed;
-    if (Input::KeyPressed(KeyCode::s))
-        playerEntity->velocity = playerEntity->transform.Forward() * -moveSpeed;
-    if (Input::KeyPressed(KeyCode::a))
-        playerEntity->velocity = playerEntity->transform.Right() * -moveSpeed;
-    if (Input::KeyPressed(KeyCode::d))
-        playerEntity->velocity = playerEntity->transform.Right() * moveSpeed;
+    Vector3 movementDir;
+
+    if (Input::KeyHeld(KeyCode::w))
+        movementDir = movementDir + playerEntity->transform.Forward();
+    if (Input::KeyHeld(KeyCode::s))
+        movementDir = movementDir - playerEntity->transform.Forward();
+    if (Input::KeyHeld(KeyCode::a))
+        movementDir = movementDir - playerEntity->transform.Right();
+    if (Input::KeyHeld(KeyCode::d))
+        movementDir = movementDir + playerEntity->transform.Right();
+
+    playerEntity->velocity = movementDir.Normal() * moveSpeed;
 
     //Cast ray
     if (Input::KeyPressed(KeyCode::q))
     {
-        //Ray ray = RayCast::Cast(Vector3(0, 65, 13), Vector3(0, 0, 1), 5, chunkHandler);
-        Ray ray = RayCast::Cast(playerEntity->transform.position, playerEntity->transform.Forward(), 5, chunkHandler);
+        Ray ray = Physics::CastRay(playerEntity->transform.position, playerEntity->transform.Forward(), 5, chunkHandler);
         if (ray.hit)
             std::cout << "Start:" << ray.rPos.ToString() << " Dir:" << ray.rDir.ToString() << " Length:" << ray.rLength << " Block:" << ray.block->position.ToString() << " Face:" << ray.blockFace.face << std::endl;
     }

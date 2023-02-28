@@ -1,6 +1,7 @@
 #include "Input.h"
 
 GLFWwindow* Input::window;
+std::vector<KeyState> Input::keyStates;
 int Input::windowWidth, Input::windowHeight;
 double Input::prevMousePosX, Input::prevMousePosY;
 double Input::mousePosX, Input::mousePosY;
@@ -9,86 +10,17 @@ bool Input::lockCursor = true;
 
 bool Input::KeyPressed(KeyCode keyCode)
 {
-    switch (keyCode)
-    {
-    case w:
-        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-            return true;
-        break;
-    case a:
-        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-            return true;
-        break;
-    case s:
-        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-            return true;
-        break;
-    case d:
-        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-            return true;
-        break;
-    case q:
-        if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
-            return true;
-        break;
-    case e:
-        if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
-            return true;
-        break;
-    case z:
-        if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
-            return true;
-        break;
-    case x:
-        if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
-            return true;
-        break;
-    default:
-        break;
-    }
-    return false;
+    return (keyStates.at(keyCode) == Pressed);
+}
+
+bool Input::KeyHeld(KeyCode keyCode)
+{
+    return (keyStates.at(keyCode) == Held);
 }
 
 bool Input::KeyReleased(KeyCode keyCode)
 {
-    switch (keyCode)
-    {
-    case w:
-        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_RELEASE)
-            return true;
-        break;
-    case a:
-        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_RELEASE)
-            return true;
-        break;
-    case s:
-        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_RELEASE)
-            return true;
-        break;
-    case d:
-        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_RELEASE)
-            return true;
-        break;
-    case q:
-        if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_RELEASE)
-            return true;
-        break;
-    case e:
-        if (glfwGetKey(window, GLFW_KEY_E) == GLFW_RELEASE)
-            return true;
-        break;
-    case z:
-        if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_RELEASE)
-            return true;
-        break;
-    case x:
-        if (glfwGetKey(window, GLFW_KEY_X) == GLFW_RELEASE)
-            return true;
-        break;
-    default:
-        break;
-    }
-    return false;
+    return (keyStates.at(keyCode) == Released);
 }
 
 double Input::GetMouseDeltaX()
@@ -101,7 +33,7 @@ double Input::GetMouseDeltaY()
     return mousePosDeltaY;
 }
 
-void Input::Update()
+void Input::MouseUpdate()
 {
     if (lockCursor)
     {
@@ -119,4 +51,75 @@ void Input::Update()
     //    prevMousePosX = mousePosX;
     //    prevMousePosY = mousePosY;
     //}
+}
+
+void Input::Init()
+{
+    for (int i = 0; i < KeyCode::SIZE; i++)
+    {
+        keyStates.push_back(KeyState::None);
+    }
+}
+
+void Input::UpdatePressToHeld()
+{
+    for (int i = 0; i < KeyCode::SIZE; i++)
+    {
+        if (keyStates.at(i) == Pressed)
+            keyStates.at(i) = Held;
+    }
+}
+
+void Input::ResetReleaseKeyStates()
+{
+    for (int i = 0; i < KeyCode::SIZE; i++)
+    {
+        if (keyStates.at(i) == Released)
+            keyStates.at(i) = None;
+    }
+}
+
+void Input::KeyCallBack(int key, int action)
+{
+    KeyCode keyCode;
+    switch (key)
+    {
+    case GLFW_KEY_W:
+        keyCode = w;
+        break;
+    case GLFW_KEY_A:
+        keyCode = a;
+        break;
+    case GLFW_KEY_S:
+        keyCode = s;
+        break;
+    case GLFW_KEY_D:
+        keyCode = d;
+        break;
+    case GLFW_KEY_Q:
+        keyCode = q;
+        break;
+    case GLFW_KEY_E:
+        keyCode = e;
+        break;
+    case GLFW_KEY_Z:
+        keyCode = z;
+        break;
+    case GLFW_KEY_X:
+        keyCode = x;
+        break;
+    default:
+        return;
+        break;
+    }
+
+    if (action == GLFW_PRESS)
+    {
+        if (keyStates.at(keyCode) == None)
+            keyStates.at(keyCode) = Pressed;
+    }
+    else if (action == GLFW_RELEASE)
+    {
+        keyStates.at(keyCode) = Released;
+    }
 }

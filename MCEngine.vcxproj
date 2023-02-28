@@ -116,7 +116,6 @@
     <ClInclude Include="src\Math\Constants.h" />
     <ClInclude Include="src\Math\Vector2.h" />
     <ClInclude Include="src\Math\Vector3.h" />
-    <ClInclude Include="src\Physics\RayCast.h" />
     <ClInclude Include="src\Renderer\Camera.h" />
     <ClInclude Include="src\Renderer\GLCall.h" />
     <ClInclude Include="src\Renderer\IndexBuffer.h" />
@@ -151,7 +150,6 @@
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Math\Vector2.cpp" />
     <ClCompile Include="src\Math\Vector3.cpp" />
-    <ClCompile Include="src\Physics\RayCast.cpp" />
     <ClCompile Include="src\Renderer\Camera.cpp" />
     <ClCompile Include="src\Renderer\IndexBuffer.cpp" />
     <ClCompile Include="src\Renderer\Renderer.cpp" />

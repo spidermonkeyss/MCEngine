@@ -152,6 +152,7 @@ int main(void)
     Block::blockTextureAtlas->Bind(0);
     Block::blockShader->SetUniform1i("u_TextureAtlas", 0);
 
+    Input::Init();
     TimeHandler::Init();
 
     while (!glfwWindowShouldClose(window))
@@ -169,7 +170,7 @@ int main(void)
 
         /*--Logic--*/
         //Get user inputs
-        Input::Update();
+        Input::MouseUpdate();
         //Do player logic and update velocity
         playerController.Update(&chunkHandler);
         
@@ -188,6 +189,10 @@ int main(void)
         renderer.Render(&camera, &chunkHandler, &playerController);
 
         RunImGuiFrame(&chunkHandler, &playerController);
+
+        //Set key states
+        Input::ResetReleaseKeyStates();
+        Input::UpdatePressToHeld();
 
         glfwSwapBuffers(window);
         glfwPollEvents();
