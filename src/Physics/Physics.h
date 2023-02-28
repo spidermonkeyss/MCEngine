@@ -1,5 +1,5 @@
 #pragma once
-#include "Entity.h";
+#include "Entity/Entity.h";
 #include "Collision.h"
 
 static class Physics

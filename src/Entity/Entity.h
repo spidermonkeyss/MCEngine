@@ -1,5 +1,5 @@
 #pragma once
-#include "Collider.h"
+#include "Physics/Collider.h"
 #include "Transform.h"
 #include "Chunk/ChunkHandler.h"
 #include "List.h"

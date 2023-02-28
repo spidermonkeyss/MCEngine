@@ -6,32 +6,32 @@ void Physics::ResolveBlockCollision(BlockCollision blockCollision)
 {
 	float entityColliderDistanceToBlockCenter = blockCollision.entity->GetCollider().length.x + CollisionDetection::minimum_collision_distance;
 
-	if (blockCollision.blockFaceCollidedWith == BlockCollision::top)// && blockCollision.entity->velocity.y < 0)
+	if (blockCollision.blockFaceCollidedWith == BlockFace::top)// && blockCollision.entity->velocity.y < 0)
 	{
 		blockCollision.entity->velocity.y = 0;
 		blockCollision.entity->transform.position.y = blockCollision.blockCollider.worldPosition.y + entityColliderDistanceToBlockCenter;
 	}
-	else if (blockCollision.blockFaceCollidedWith == BlockCollision::bot)// && blockCollision.entity->velocity.y > 0)
+	else if (blockCollision.blockFaceCollidedWith == BlockFace::bot)// && blockCollision.entity->velocity.y > 0)
 	{
 		blockCollision.entity->velocity.y = 0;
 		blockCollision.entity->transform.position.y = blockCollision.blockCollider.worldPosition.y - entityColliderDistanceToBlockCenter;
 	}
-	else if (blockCollision.blockFaceCollidedWith == BlockCollision::North)// && blockCollision.entity->velocity.z > 0)
+	else if (blockCollision.blockFaceCollidedWith == BlockFace::North)// && blockCollision.entity->velocity.z > 0)
 	{
 		blockCollision.entity->velocity.z = 0;
 		blockCollision.entity->transform.position.z = blockCollision.blockCollider.worldPosition.z - entityColliderDistanceToBlockCenter;
 	}
-	else if (blockCollision.blockFaceCollidedWith == BlockCollision::South)// && blockCollision.entity->velocity.z < 0)
+	else if (blockCollision.blockFaceCollidedWith == BlockFace::South)// && blockCollision.entity->velocity.z < 0)
 	{
 		blockCollision.entity->velocity.z = 0;
 		blockCollision.entity->transform.position.z = blockCollision.blockCollider.worldPosition.z + entityColliderDistanceToBlockCenter;
 	}
-	else if (blockCollision.blockFaceCollidedWith == BlockCollision::East)// && blockCollision.entity->velocity.x < 0)
+	else if (blockCollision.blockFaceCollidedWith == BlockFace::East)// && blockCollision.entity->velocity.x < 0)
 	{
 		blockCollision.entity->velocity.x = 0;
 		blockCollision.entity->transform.position.x = blockCollision.blockCollider.worldPosition.x + entityColliderDistanceToBlockCenter;
 	}
-	else if (blockCollision.blockFaceCollidedWith == BlockCollision::West)// && blockCollision.entity->velocity.x > 0)
+	else if (blockCollision.blockFaceCollidedWith == BlockFace::West)// && blockCollision.entity->velocity.x > 0)
 	{
 		blockCollision.entity->velocity.x = 0;
 		blockCollision.entity->transform.position.x = blockCollision.blockCollider.worldPosition.x - entityColliderDistanceToBlockCenter;

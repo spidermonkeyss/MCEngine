@@ -4,7 +4,6 @@
 
 struct BlockCollision
 {
-	enum BlockFace { North, East, South, West, bot, top, unresolved };
 	Entity* entity;
 	BlockData* block;
 	BlockCollider blockCollider;

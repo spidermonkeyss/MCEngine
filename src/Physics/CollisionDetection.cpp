@@ -1,5 +1,5 @@
 #include "CollisionDetection.h"
-#include "Entity/Collider.h"
+#include "Collider.h"
 
 std::vector<BlockCollision> CollisionDetection::blockCollisionsToResolve;
 std::vector<BlockCollision> CollisionDetection::blockCollisions;
@@ -103,7 +103,7 @@ void CollisionDetection::CheckBlockCollider(Entity* entity, BlockCollider blockC
 
 void CollisionDetection::CheckBlockCollisionFace(BlockCollision* bc)
 {
-	bc->blockFaceCollidedWith = BlockCollision::unresolved;
+	bc->blockFaceCollidedWith = BlockFace::unresolved;
 	
 	Vector3 collisionNormalVec = (bc->entity->transform.position - bc->blockCollider.worldPosition).Normal();
 	if (abs(collisionNormalVec.y) > abs(collisionNormalVec.x))
@@ -112,37 +112,37 @@ void CollisionDetection::CheckBlockCollisionFace(BlockCollision* bc)
 		if (abs(collisionNormalVec.y) > abs(collisionNormalVec.z) && bc->canPushY)
 		{
 			if (collisionNormalVec.y > 0)
-				bc->blockFaceCollidedWith = BlockCollision::top;
+				bc->blockFaceCollidedWith = BlockFace::top;
 			else
-				bc->blockFaceCollidedWith = BlockCollision::bot;
+				bc->blockFaceCollidedWith = BlockFace::bot;
 		}
 		//z biggest
 		else if (bc->canPushZ)
 		{
 			if (collisionNormalVec.z > 0)
-				bc->blockFaceCollidedWith = BlockCollision::South;
+				bc->blockFaceCollidedWith = BlockFace::South;
 			else
-				bc->blockFaceCollidedWith = BlockCollision::North;
+				bc->blockFaceCollidedWith = BlockFace::North;
 		}
 	}
 	//z biggest
 	else if (abs(collisionNormalVec.z) > abs(collisionNormalVec.x) && bc->canPushZ)
 	{
 		if (collisionNormalVec.z > 0)
-			bc->blockFaceCollidedWith = BlockCollision::South;
+			bc->blockFaceCollidedWith = BlockFace::South;
 		else
-			bc->blockFaceCollidedWith = BlockCollision::North;
+			bc->blockFaceCollidedWith = BlockFace::North;
 	}
 	//x biggest
 	else if (bc->canPushX)
 	{
 		if (collisionNormalVec.x > 0)
-			bc->blockFaceCollidedWith = BlockCollision::East;
+			bc->blockFaceCollidedWith = BlockFace::East;
 		else
-			bc->blockFaceCollidedWith = BlockCollision::West;
+			bc->blockFaceCollidedWith = BlockFace::West;
 	}
 
-	if (bc->blockFaceCollidedWith == BlockCollision::unresolved)
+	if (bc->blockFaceCollidedWith == BlockFace::unresolved)
 		bc->resolve = false;
 }
 

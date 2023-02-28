@@ -1,7 +1,8 @@
 #include "PlayerController.h"
 #include "Time/TimeHandler.h"
+#include "Physics/RayCast.h"
 
-void PlayerController::Update()
+void PlayerController::Update(ChunkHandler* chunkHandler)
 {
     //Camera control
     playerEntity->transform.rotation.y -= mouseSpeed * TimeHandler::DeltaTime() * Input::GetMouseDeltaX();
@@ -28,8 +29,14 @@ void PlayerController::Update()
     if (Input::KeyPressed(KeyCode::d))
         playerEntity->velocity = playerEntity->transform.Right() * moveSpeed;
 
-
-    //std::cout << camera.transform.position.ToString() << std::endl;
+    //Cast ray
+    if (Input::KeyPressed(KeyCode::q))
+    {
+        //Ray ray = RayCast::Cast(Vector3(0, 65, 13), Vector3(0, 0, 1), 5, chunkHandler);
+        Ray ray = RayCast::Cast(playerEntity->transform.position, playerEntity->transform.Forward(), 5, chunkHandler);
+        if (ray.hit)
+            std::cout << "Start:" << ray.rPos.ToString() << " Dir:" << ray.rDir.ToString() << " Length:" << ray.rLength << " Block:" << ray.block->position.ToString() << " Face:" << ray.blockFace.face << std::endl;
+    }
 }
 
 void PlayerController::SetCamera(Camera* _camera)

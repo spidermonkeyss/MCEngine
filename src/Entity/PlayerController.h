@@ -12,7 +12,7 @@ private:
 public:
 	Entity* playerEntity;
 
-	void Update();
+	void Update(ChunkHandler* chunkHandler);
 	void SetCamera(Camera* camera);
 	inline Camera* const GetCamera() const { return camera; }
 };
