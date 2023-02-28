@@ -41,5 +41,10 @@ public:
 	int GetBlockIndexInNeighborChunk(float x, float y, float z);
 	Vector3 GetBlockWorldPosition(Vector3 vec);
 	Vector3 GetBlockWorldPosition(float x, float y, float z);
+	void RemoveBlock(int blockIndex);
+	void RemoveBlock(float x, float y, float z);
+	void RemoveBlock(Vector3 position);
+	void AddBlock(int blockIndex);
+	void AddBlock(float x, float y, float z);
 	void Empty();
 };

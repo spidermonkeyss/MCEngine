@@ -72,6 +72,7 @@ Ray Physics::CastRay(Vector3 startPoint, Vector3 direction, float length, ChunkH
 	Ray ray;
 	ray.hit = false;
 	ray.block = nullptr;
+	ray.chunk = nullptr;
 	ray.blockFace = BlockFace::unresolved;
 	ray.rLength = 0;
 
@@ -96,6 +97,7 @@ Ray Physics::CastRay(Vector3 startPoint, Vector3 direction, float length, ChunkH
 			for (int x = rayBoundStart.x; x <= rayBoundEnd.x; x++)
 			{
 				BlockData* bd = chunkHandler->GetBlockFromWorldPosition(x, y, z);
+				Chunk* chunk = chunkHandler->GetChunkFromWorldPosition(x, y, z);
 				//Check that block is not air
 				if (bd->blockId != Block::Air)
 				{
@@ -157,6 +159,7 @@ Ray Physics::CastRay(Vector3 startPoint, Vector3 direction, float length, ChunkH
 										ray.rPos = startPoint;
 										ray.blockFace = (BlockFace::Face)face;
 										ray.block = bd;
+										ray.chunk = chunk;
 									}
 									//Check if face intersect point is shortest length
 									else if (t < ray.rLength)
@@ -166,6 +169,7 @@ Ray Physics::CastRay(Vector3 startPoint, Vector3 direction, float length, ChunkH
 										ray.rPos = startPoint;
 										ray.blockFace = (BlockFace::Face)face;
 										ray.block = bd;
+										ray.chunk = chunk;
 									}
 								}
 							}

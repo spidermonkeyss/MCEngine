@@ -9,6 +9,7 @@ public:
 	Vector3 rPos;
 	Vector3 rDir;
 	float rLength;
+	Chunk* chunk;
 	BlockData* block;
 	BlockFace blockFace;
 };

@@ -206,3 +206,28 @@ Vector3 Chunk::GetBlockWorldPosition(float x, float y, float z)
 {
     return Vector3(x + chunkPos.x * chunkWidth, y, z + chunkPos.y * chunkWidth);
 }
+
+void Chunk::RemoveBlock(int blockIndex)
+{
+    blocks[blockIndex].blockId = Block::Air;
+    isMarkedForUpdate = true;
+    updateAllBlocks = true;
+}
+
+void Chunk::RemoveBlock(float x, float y, float z)
+{
+    RemoveBlock(GetBlockIndex(x, y, z));
+}
+
+void Chunk::RemoveBlock(Vector3 position)
+{
+    RemoveBlock(GetBlockIndex(position.x, position.y, position.z));
+}
+
+void Chunk::AddBlock(int blockIndex)
+{
+}
+
+void Chunk::AddBlock(float x, float y, float z)
+{
+}

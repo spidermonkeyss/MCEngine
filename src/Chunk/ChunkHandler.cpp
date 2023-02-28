@@ -27,7 +27,6 @@ void ChunkHandler::LoadChunks(Vector2 playerPos)
 	for (int i = 0; i < chunkBufferSize; i++)
 	{
 		chunks[i].isMarkedForUnload = true;
-		chunks[i].isMarkedForUpdate = false;
 	}
 
 	Vector2 playerChunkPos = playerPos / Chunk::chunkWidth;
@@ -76,6 +75,7 @@ void ChunkHandler::UpdateChunks()
 				 
 			chunks[i].UpdateNeighborBlockIds(chunks[i].updateAllBlocks);
 			chunks[i].chunkMesh.UpdateMesh(chunks[i].blocks);
+			chunks[i].isMarkedForUpdate = false;
 		}
 	}
 }

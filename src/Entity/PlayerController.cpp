@@ -28,7 +28,10 @@ void PlayerController::Update(ChunkHandler* chunkHandler)
     {
         Ray ray = Physics::CastRay(playerEntity->transform.position, playerEntity->transform.Forward(), 5, chunkHandler);
         if (ray.hit)
-            std::cout << "Start:" << ray.rPos.ToString() << " Dir:" << ray.rDir.ToString() << " Length:" << ray.rLength << " Block:" << ray.block->position.ToString() << " Face:" << ray.blockFace.face << std::endl;
+        { 
+            //std::cout << "Start:" << ray.rPos.ToString() << " Dir:" << ray.rDir.ToString() << " Length:" << ray.rLength << " Chunk:" << ray.chunk->chunkPos.ToString() << " Block:" << ray.block->position.ToString() << " Face:" << ray.blockFace.face << std::endl;
+            ray.chunk->RemoveBlock(ray.block->position);
+        }
     }
 }
 
