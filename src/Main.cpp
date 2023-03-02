@@ -63,16 +63,17 @@ void RunImGuiFrame(ChunkHandler* chunkHandler, PlayerController* playerControlle
     ImGui::Text(("Rotation:" + playerController->playerEntity->transform.rotation.ToString()).c_str());
     ImGui::Text(("Chunk Position:" + chunkHandler->GetRelativeChunkPosition(playerController->playerEntity->transform.position).ToString()).c_str());
     ImGui::Text(("Velocity:" + playerController->playerEntity->velocity.ToString()).c_str());
-    ImGui::Text("Collisions");
+    ImGui::Text(("Block looking at:" + playerController->blockLookingAtPos.ToString() + playerController->blockFaceLookingAt.ToString()).c_str());
     ImGui::Text("Origin Chunk");
     if (playerController->playerEntity->originChunk)
         ImGui::Text(playerController->playerEntity->originChunk->chunkPos.ToString().c_str());
     else
         ImGui::Text("No origin chunk");
+    ImGui::Text("Collisions");
     for (int i = 0; i < CollisionDetection::blockCollisionsToResolve.size(); i++)
     {
-        ImGui::Text(CollisionDetection::blockCollisionsToResolve[i].blockCollider.block->position.ToString().c_str());
-        ImGui::Text(std::to_string(CollisionDetection::blockCollisionsToResolve[i].blockFaceCollidedWith.face).c_str());
+        std::string blockFace = CollisionDetection::blockCollisionsToResolve[i].blockFaceCollidedWith.ToString();
+        ImGui::Text((CollisionDetection::blockCollisionsToResolve[i].blockCollider.block->position.ToString() + blockFace).c_str());
     }
 
     //ImGui::Text("Chunks");

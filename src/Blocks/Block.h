@@ -90,6 +90,37 @@ public:
 		}
 	}
 
+	std::string ToString()
+	{
+		switch (face)
+		{
+		case 0:
+			return "North";
+			break;
+		case 1:
+			return "East";
+			break;
+		case 2:
+			return "South";
+			break;
+		case 3:
+			return "West";
+			break;
+		case 4:
+			return "bot";
+			break;
+		case 5:
+			return "top";
+			break;
+		case 6:
+			return "unresolved";
+			break;
+		default:
+			return "";
+			break;
+		}	   
+	}
+
 	void operator=(BlockFace rh)
 	{
 		this->face = rh.face;

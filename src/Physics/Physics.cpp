@@ -81,13 +81,13 @@ Ray Physics::CastRay(Vector3 startPoint, Vector3 direction, float length, ChunkH
 	//Set up ray bounding box
 	Vector3 endPoint = startPoint + (direction * length);
 	Vector3 rayBoundStart;
-	rayBoundStart.x = std::min(startPoint.x, endPoint.x);
-	rayBoundStart.y = std::min(startPoint.y, endPoint.y);
-	rayBoundStart.z = std::min(startPoint.z, endPoint.z);
+	rayBoundStart.x = std::round(std::min(startPoint.x, endPoint.x));
+	rayBoundStart.y = std::round(std::min(startPoint.y, endPoint.y));
+	rayBoundStart.z = std::round(std::min(startPoint.z, endPoint.z));
 	Vector3 rayBoundEnd;
-	rayBoundEnd.x = std::max(startPoint.x, endPoint.x);
-	rayBoundEnd.y = std::max(startPoint.y, endPoint.y);
-	rayBoundEnd.z = std::max(startPoint.z, endPoint.z);
+	rayBoundEnd.x = std::round(std::max(startPoint.x, endPoint.x));
+	rayBoundEnd.y = std::round(std::max(startPoint.y, endPoint.y));
+	rayBoundEnd.z = std::round(std::max(startPoint.z, endPoint.z));
 
 	//Get all blocks in rays bounding box using world pos
 	for (int y = rayBoundStart.y; y <= rayBoundEnd.y; y++)
@@ -141,19 +141,19 @@ Ray Physics::CastRay(Vector3 startPoint, Vector3 direction, float length, ChunkH
 								}
 
 								//Get ray length
-								Vector3 oppPlaneNormal = Vector3() - planeNormal;
-								float t = d / abs(cos(Vector3::AngleRadians(direction, oppPlaneNormal)));
+								float t = d / abs(cos(Vector3::AngleRadians(direction, planeNormal)));
 
 								if (t < 0)
 								{
 									std::cout << std::endl;
-									std::cout << "T IS NEG t:" << t << " d:" << d << " rad:" << Vector3::AngleRadians(direction, oppPlaneNormal) << std::endl;
-									std::cout << "cos:" << abs(cos(Vector3::AngleRadians(direction, oppPlaneNormal))) << std::endl;
+									std::cout << "T IS NEG t:" << t << " d:" << d << " rad:" << Vector3::AngleRadians(direction, planeNormal) << std::endl;
+									std::cout << "cos:" << abs(cos(Vector3::AngleRadians(direction, planeNormal))) << std::endl;
 									std::cout << "blockWorldPos" << blockWorldPos.ToString() << std::endl;
 									std::cout << "face" << face << std::endl;
 									std::cout << std::endl;
 									ASSERT(true);
 								}
+
 								//Get intersect point with plane
 								Vector3 p = startPoint + (direction * t);
 
