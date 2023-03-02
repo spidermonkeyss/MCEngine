@@ -44,7 +44,8 @@ public:
 	void RemoveBlock(int blockIndex);
 	void RemoveBlock(float x, float y, float z);
 	void RemoveBlock(Vector3 position);
-	void AddBlock(int blockIndex);
-	void AddBlock(float x, float y, float z);
+	void ChangeBlock(int blockIndex, Block::BlockID blockId);
+	void ChangeBlock(float x, float y, float z, Block::BlockID blockId);
+	void ChangeBlock(Vector3 position, Block::BlockID blockId);
 	void Empty();
 };

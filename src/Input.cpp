@@ -123,3 +123,27 @@ void Input::KeyCallBack(int key, int action)
         keyStates.at(keyCode) = Released;
     }
 }
+
+void Input::MouseCallBack(int button, int action)
+{
+    KeyCode keyCode;
+    switch (button)
+    {
+    case GLFW_MOUSE_BUTTON_1:
+        keyCode = mouse1;
+        break;
+    case GLFW_MOUSE_BUTTON_2:
+        keyCode = mouse2;
+        break;
+    }
+
+    if (action == GLFW_PRESS)
+    {
+        if (keyStates.at(keyCode) == None)
+            keyStates.at(keyCode) = Pressed;
+    }
+    else if (action == GLFW_RELEASE)
+    {
+        keyStates.at(keyCode) = Released;
+    }
+}

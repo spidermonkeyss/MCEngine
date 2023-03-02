@@ -106,7 +106,8 @@ int main(void)
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1);
-    glfwSetKeyCallback(window, key_callback);
+    glfwSetKeyCallback(window, key_callback); 
+    glfwSetMouseButtonCallback(window, mouse_button_callback);
     glfwSetCursorPosCallback(window, cursor_position_callback);
     //GLCall(glPolygonMode(GL_FRONT_AND_BACK, GL_LINE));
     GLCall(glEnable(GL_CULL_FACE));

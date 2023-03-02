@@ -141,8 +141,19 @@ Ray Physics::CastRay(Vector3 startPoint, Vector3 direction, float length, ChunkH
 								}
 
 								//Get ray length
-								float t = 1.0f - abs(Vector3::Dot(direction, planeNormal)) + d;
+								Vector3 oppPlaneNormal = Vector3() - planeNormal;
+								float t = d / abs(cos(Vector3::AngleRadians(direction, oppPlaneNormal)));
 
+								if (t < 0)
+								{
+									std::cout << std::endl;
+									std::cout << "T IS NEG t:" << t << " d:" << d << " rad:" << Vector3::AngleRadians(direction, oppPlaneNormal) << std::endl;
+									std::cout << "cos:" << abs(cos(Vector3::AngleRadians(direction, oppPlaneNormal))) << std::endl;
+									std::cout << "blockWorldPos" << blockWorldPos.ToString() << std::endl;
+									std::cout << "face" << face << std::endl;
+									std::cout << std::endl;
+									ASSERT(true);
+								}
 								//Get intersect point with plane
 								Vector3 p = startPoint + (direction * t);
 

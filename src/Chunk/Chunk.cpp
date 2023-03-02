@@ -224,10 +224,19 @@ void Chunk::RemoveBlock(Vector3 position)
     RemoveBlock(GetBlockIndex(position.x, position.y, position.z));
 }
 
-void Chunk::AddBlock(int blockIndex)
+void Chunk::ChangeBlock(int blockIndex, Block::BlockID blockId)
 {
+    blocks[blockIndex].blockId = blockId;
+    isMarkedForUpdate = true;
+    updateAllBlocks = true;
 }
 
-void Chunk::AddBlock(float x, float y, float z)
+void Chunk::ChangeBlock(float x, float y, float z, Block::BlockID blockId)
 {
+    ChangeBlock(GetBlockIndex(x, y, z), blockId);
+}
+
+void Chunk::ChangeBlock(Vector3 position, Block::BlockID blockId)
+{
+    ChangeBlock(GetBlockIndex(position.x, position.y, position.z), blockId);
 }

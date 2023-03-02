@@ -23,16 +23,25 @@ void PlayerController::Update(ChunkHandler* chunkHandler)
 
     playerEntity->velocity = movementDir.Normal() * moveSpeed;
 
-    //Cast ray
-    if (Input::KeyPressed(KeyCode::q))
+    if (Input::KeyPressed(KeyCode::mouse1))
     {
         Ray ray = Physics::CastRay(playerEntity->transform.position, playerEntity->transform.Forward(), 5, chunkHandler);
         if (ray.hit)
         { 
-            //std::cout << "Start:" << ray.rPos.ToString() << " Dir:" << ray.rDir.ToString() << " Length:" << ray.rLength << " Chunk:" << ray.chunk->chunkPos.ToString() << " Block:" << ray.block->position.ToString() << " Face:" << ray.blockFace.face << std::endl;
+            std::cout << " Length:" << ray.rLength << " Block:" << ray.block->position.ToString() << " Face:" << ray.blockFace.face << std::endl;
             ray.chunk->RemoveBlock(ray.block->position);
         }
     }
+
+    if (Input::KeyPressed(KeyCode::mouse2))
+    {
+        Ray ray = Physics::CastRay(playerEntity->transform.position, playerEntity->transform.Forward(), 5, chunkHandler);
+        if (ray.hit)
+        {
+            ray.chunk->ChangeBlock(ray.block->position + ray.blockFace.GetNormal(), Block::Cobblestone);
+        }
+    }
+
 }
 
 void PlayerController::SetCamera(Camera* _camera)

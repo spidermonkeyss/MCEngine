@@ -4,7 +4,7 @@
 #include "Math/Vector2.h"
 #include <vector>
 
-static enum KeyCode { w, a, s, d, q, e, z, x, SIZE };
+static enum KeyCode { w, a, s, d, q, e, z, x, mouse1, mouse2, SIZE };
 static enum KeyState { Pressed, Held, Released, None};
 
 static class Input
@@ -32,6 +32,7 @@ public:
     static void ResetReleaseKeyStates();
     static void MouseUpdate();
     static void KeyCallBack(int key, int action);
+    static void MouseCallBack(int button, int action);
 };
 
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -42,6 +43,11 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
     Input::KeyCallBack(key, action);
 
     //glfwSetWindowShouldClose(window, GLFW_TRUE);
+}
+
+static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+    Input::MouseCallBack(button, action);
 }
 
 static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
