@@ -64,6 +64,7 @@ void RunImGuiFrame(ChunkHandler* chunkHandler, PlayerController* playerControlle
     ImGui::Text(("Chunk Position:" + chunkHandler->GetRelativeChunkPosition(playerController->playerEntity->transform.position).ToString()).c_str());
     ImGui::Text(("Velocity:" + playerController->playerEntity->velocity.ToString()).c_str());
     ImGui::Text(("Block looking at:" + playerController->blockLookingAtPos.ToString() + playerController->blockFaceLookingAt.ToString()).c_str());
+    ImGui::Text(("Ray Point:" + playerController->D_playerRay.intersectPoint.ToString() + std::to_string(playerController->D_playerRay.rLength)).c_str());
     ImGui::Text("Origin Chunk");
     if (playerController->playerEntity->originChunk)
         ImGui::Text(playerController->playerEntity->originChunk->chunkPos.ToString().c_str());

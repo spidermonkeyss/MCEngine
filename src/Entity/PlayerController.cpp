@@ -13,6 +13,7 @@ void PlayerController::CheckLookingAtBlock(ChunkHandler * chunkHandler)
         blockLookingAtPos.SetVector(blockWorldPos.x, blockWorldPos.y, blockWorldPos.z);
         chunkLookingAt = ray.chunk;
         blockFaceLookingAt = ray.blockFace;
+        D_playerRay = ray;
     }
     else
     {
@@ -20,6 +21,7 @@ void PlayerController::CheckLookingAtBlock(ChunkHandler * chunkHandler)
         blockLookingAtPos.SetVector(-1, -1, -1);
         chunkLookingAt = nullptr;
         blockFaceLookingAt = BlockFace::unresolved;
+        D_playerRay = Ray();
     }
 }
 

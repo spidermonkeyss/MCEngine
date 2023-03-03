@@ -12,12 +12,14 @@ public:
 	Chunk* chunk;
 	BlockData* block;
 	BlockFace blockFace;
+	Vector3 intersectPoint;
 };
 
 static class Physics
 {
 private:
 	static void ResolveBlockCollision(BlockCollision blockCollision);
+	static Ray BlockRayIntersect(Chunk* chunk, BlockData* bd, Vector3 startPoint, Vector3 direction);
 public:
 	
 	//https://research.ncl.ac.uk/game/mastersdegree/gametechnologies/physicstutorials/1raycasting/Physics%20-%20Raycasting.pdf

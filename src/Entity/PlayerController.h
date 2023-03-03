@@ -2,6 +2,7 @@
 #include "Input.h"
 #include "Renderer/Camera.h"
 #include "Entity.h"
+#include "Physics/Physics.h"
 
 class PlayerController
 {
@@ -16,6 +17,8 @@ public:
 	Vector3 blockLookingAtPos;
 	Chunk* chunkLookingAt;
 	BlockFace blockFaceLookingAt;
+
+	Ray D_playerRay;
 
 	void Update(ChunkHandler* chunkHandler);
 	void SetCamera(Camera* camera);
