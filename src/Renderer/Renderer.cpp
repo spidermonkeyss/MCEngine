@@ -1,6 +1,7 @@
 #include "Renderer.h"
 #include "Blocks/Block.h"
 
+#include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
 Renderer::Renderer()
@@ -11,27 +12,32 @@ Renderer::~Renderer()
 {
 }
 
-void Renderer::Render(Camera* camera, ChunkHandler* chunkHandler, PlayerController* playerController)
+void Renderer::Render(Camera* camera, ChunkHandler* chunkHandler, PlayerController* playerController, UI* ui)
 {
-	v = glm::inverse(playerController->playerEntity->transform.GetTransformMatrix());
-	vp = *camera->GetProjMat() * v;
+	glm::mat4 v = glm::inverse(playerController->playerEntity->transform.GetTransformMatrix());
 	Block::blockShader->Bind();
-
+	Block::blockTextureAtlas->Bind(0);
+	//Block::blockShader->SetUniform1i("u_TextureAtlas", 0);
+	
 	for (int i = 0; i < chunkHandler->chunkBufferSize; i++)
 	{
 		if (chunkHandler->chunks[i].isLoaded)
 		{
-			m = chunkHandler->chunks[i].chunkMatrix4x4;
-			mvp = vp * m;
+			Block::blockShader->SetUniformMat4f("u_M", chunkHandler->chunks[i].chunkMatrix4x4);
+			Block::blockShader->SetUniformMat4f("u_V", v);
+			Block::blockShader->SetUniformMat4f("u_P", *camera->GetProjMat());
 		
-			Block::blockShader->SetUniformMat4f("u_MVP", mvp);
-		
-			Draw(*chunkHandler->chunks[i].chunkMesh.GetVertexArray(), Chunk::chunkSize, *Block::blockShader);
+			DrawChunks(*chunkHandler->chunks[i].chunkMesh.GetVertexArray(), Chunk::chunkSize, *Block::blockShader);
 		}
 	}
+
+	ui->uiShader->Bind();
+	ui->uiTexture->Bind();
+	ui->uiShader->SetUniformMat4f("u_proj", *ui->GetProjMat());
+	DrawUI(*ui->GetVertexArray(), *ui->GetIndexBuffer(), *ui->uiShader);
 }
 
-void Renderer::Draw(const VertexArray & va, const IndexBuffer& ib, const Shader& shader) const
+void Renderer::DrawUI(const VertexArray & va, const IndexBuffer& ib, const Shader& shader) const
 {
 	shader.Bind();
 	va.Bind();
@@ -39,7 +45,7 @@ void Renderer::Draw(const VertexArray & va, const IndexBuffer& ib, const Shader&
 	GLCall(glDrawElements(GL_TRIANGLES, ib.GetCount(), ib.GetDataType(), nullptr));
 }
 
-void Renderer::Draw(const VertexArray& va, unsigned int count, const Shader& shader) const
+void Renderer::DrawChunks(const VertexArray& va, unsigned int count, const Shader& shader) const
 {
 	shader.Bind();
 	va.Bind();

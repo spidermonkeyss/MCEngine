@@ -9,8 +9,8 @@ void PlayerController::CheckLookingAtBlock(ChunkHandler * chunkHandler)
     {
         //std::cout << " Length:" << ray.rLength << " Block:" << ray.block->position.ToString() << " Face:" << ray.blockFace.face << std::endl;
         isLookingAtBlock = true;
-        Vector3 blockWorldPos = ray.chunk->blocks[ray.chunk->GetBlockIndex(ray.block->position.x, ray.block->position.y, ray.block->position.z)].position;
-        blockLookingAtPos.SetVector(blockWorldPos.x, blockWorldPos.y, blockWorldPos.z);
+        Vector3 blockChunkPos = ray.chunk->blocks[ray.chunk->GetBlockIndex(ray.block->position.x, ray.block->position.y, ray.block->position.z)].position;
+        blockLookingAtChunkPos = blockChunkPos;
         chunkLookingAt = ray.chunk;
         blockFaceLookingAt = ray.blockFace;
         D_playerRay = ray;
@@ -18,7 +18,7 @@ void PlayerController::CheckLookingAtBlock(ChunkHandler * chunkHandler)
     else
     {
         isLookingAtBlock = false;
-        blockLookingAtPos.SetVector(-1, -1, -1);
+        blockLookingAtChunkPos.SetVector(-1, -1, -1);
         chunkLookingAt = nullptr;
         blockFaceLookingAt = BlockFace::unresolved;
         D_playerRay = Ray();
@@ -50,12 +50,17 @@ void PlayerController::Update(ChunkHandler* chunkHandler)
 
     if (Input::KeyPressed(KeyCode::mouse1) && isLookingAtBlock)
     {
-        chunkLookingAt->RemoveBlock(blockLookingAtPos);
+        chunkLookingAt->RemoveBlock(blockLookingAtChunkPos);
     }
 
     if (Input::KeyPressed(KeyCode::mouse2) && isLookingAtBlock)
     {
-        chunkLookingAt->ChangeBlock(blockLookingAtPos + blockFaceLookingAt.GetNormal(), Block::Cobblestone);
+        Vector3 blockLookingAtWorldPos = chunkLookingAt->GetBlockWorldPosition(blockLookingAtChunkPos);
+
+        Vector3 blockToPlaceWorldPos = chunkLookingAt->GetBlockWorldPosition(blockLookingAtChunkPos + blockFaceLookingAt.GetNormal());
+        Chunk* blockToPlaceChunk = chunkHandler->GetChunkFromWorldPosition(blockToPlaceWorldPos);
+        Vector3 blockToPlaceChunkPos = chunkHandler->GetRelativeChunkPosition(blockToPlaceWorldPos);
+        blockToPlaceChunk->ChangeBlock(blockToPlaceChunkPos, Block::Cobblestone);
     }
 
 }

@@ -134,6 +134,7 @@
     <ClInclude Include="src\Renderer\imgui\stb_truetype.h" />
     <ClInclude Include="src\Time\FunctionTimer.h" />
     <ClInclude Include="src\Time\TimeHandler.h" />
+    <ClInclude Include="src\UI\UI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Blocks\Block.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="src\Renderer\imgui\imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="src\Time\FunctionTimer.cpp" />
     <ClCompile Include="src\Time\TimeHandler.cpp" />
+    <ClCompile Include="src\UI\UI.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -24,7 +24,9 @@ void main()
 layout(points) in;
 layout(triangle_strip, max_vertices = 36) out;
 
-uniform mat4 u_MVP;
+uniform mat4 u_M;
+uniform mat4 u_V;
+uniform mat4 u_P;
 uniform int u_BlockTypeAmount;
 
 in float v_blockId[];
@@ -79,22 +81,24 @@ void main()
 	if (render != 0)
 		return;
 
+	mat4 MVP = u_P * u_V * u_M;
+
 	for (int i = 0; i < 48; i += 8)
 	{
 		face = index[i + 3];
-		gl_Position = u_MVP * (gl_in[0].gl_Position + v[index[i + 0]]);
+		gl_Position = MVP * (gl_in[0].gl_Position + v[index[i + 0]]);
 		g_TexCoord = vec2(0.0f, 0.0f);
 		g_TexCoord.x = (g_TexCoord.x / 6.0f) + ((1.0f / 6.0f) * face);
 		g_TexCoord.y = (g_TexCoord.y / numOfBlockType) + ((1.0f / numOfBlockType) * (v_blockId[0] - 1));
 		EmitVertex();
 		
-		gl_Position = u_MVP * (gl_in[0].gl_Position + v[index[i + 1]]);
+		gl_Position = MVP * (gl_in[0].gl_Position + v[index[i + 1]]);
 		g_TexCoord = vec2(1.0f, 0.0f);
 		g_TexCoord.x = (g_TexCoord.x / 6.0f) + ((1.0f / 6.0f) * face);
 		g_TexCoord.y = (g_TexCoord.y / numOfBlockType) + ((1.0f / numOfBlockType) * (v_blockId[0] - 1));
 		EmitVertex();
 		
-		gl_Position = u_MVP * (gl_in[0].gl_Position + v[index[i + 2]]);
+		gl_Position = MVP * (gl_in[0].gl_Position + v[index[i + 2]]);
 		g_TexCoord = vec2(1.0f, 1.0f);
 		g_TexCoord.x = (g_TexCoord.x / 6.0f) + ((1.0f / 6.0f) * face);
 		g_TexCoord.y = (g_TexCoord.y / numOfBlockType) + ((1.0f / numOfBlockType) * (v_blockId[0] - 1));
@@ -103,19 +107,19 @@ void main()
 		EndPrimitive();
 
 		face = index[i + 7];
-		gl_Position = u_MVP * (gl_in[0].gl_Position + v[index[i + 4]]);
+		gl_Position = MVP * (gl_in[0].gl_Position + v[index[i + 4]]);
 		g_TexCoord = vec2(1.0f, 1.0f);
 		g_TexCoord.x = (g_TexCoord.x / 6.0f) + ((1.0f / 6.0f) * face);
 		g_TexCoord.y = (g_TexCoord.y / numOfBlockType) + ((1.0f / numOfBlockType) * (v_blockId[0] - 1));
 		EmitVertex();
 
-		gl_Position = u_MVP * (gl_in[0].gl_Position + v[index[i + 5]]);
+		gl_Position = MVP * (gl_in[0].gl_Position + v[index[i + 5]]);
 		g_TexCoord = vec2(0.0f, 1.0f);
 		g_TexCoord.x = (g_TexCoord.x / 6.0f) + ((1.0f / 6.0f) * face);
 		g_TexCoord.y = (g_TexCoord.y / numOfBlockType) + ((1.0f / numOfBlockType) * (v_blockId[0] - 1));
 		EmitVertex();
 
-		gl_Position = u_MVP * (gl_in[0].gl_Position + v[index[i + 6]]);
+		gl_Position = MVP * (gl_in[0].gl_Position + v[index[i + 6]]);
 		g_TexCoord = vec2(0.0f, 0.0f);
 		g_TexCoord.x = (g_TexCoord.x / 6.0f) + ((1.0f / 6.0f) * face);
 		g_TexCoord.y = (g_TexCoord.y / numOfBlockType) + ((1.0f / numOfBlockType) * (v_blockId[0] - 1));

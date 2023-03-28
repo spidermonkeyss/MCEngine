@@ -20,7 +20,7 @@ template<typename T> void BlockRegister::RegisterBlock(Block::BlockID blockID)
 void BlockRegister::SetupShader()
 {
 	//Create the block shader
-	std::unique_ptr<Shader> shader(new Shader(Block::GetBlockShaderFilePath()));
+	std::unique_ptr<Shader> shader(new Shader(Block::GetBlockShaderFilePath(), true));
 	Block::blockShader = std::move(shader);
 }
 

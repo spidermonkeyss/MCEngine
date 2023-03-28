@@ -1,7 +1,7 @@
 # MCEngine
 Minecraft style engine using OpenGL
 
-<p>Need a folder called Libraries two folders up from from soluition and project files.</p>
+<p>Need a folder called Libraries two folders up from soluition and project files.</p>
 <p>The folder has the files from my Project-Libraries repository.</p>
 <p>To build the project run the "RunPremake.bat" file</p>
 <p>The bat file runs this "call premake5.exe vs2019 PAUSE". This works for vs 2022 but you need to retarget the solution after opening it in vs. In the tab Project->Retarget solution</p>

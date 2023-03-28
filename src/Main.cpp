@@ -63,7 +63,7 @@ void RunImGuiFrame(ChunkHandler* chunkHandler, PlayerController* playerControlle
     ImGui::Text(("Rotation:" + playerController->playerEntity->transform.rotation.ToString()).c_str());
     ImGui::Text(("Chunk Position:" + chunkHandler->GetRelativeChunkPosition(playerController->playerEntity->transform.position).ToString()).c_str());
     ImGui::Text(("Velocity:" + playerController->playerEntity->velocity.ToString()).c_str());
-    ImGui::Text(("Block looking at:" + playerController->blockLookingAtPos.ToString() + playerController->blockFaceLookingAt.ToString()).c_str());
+    ImGui::Text(("Block looking at:" + playerController->blockLookingAtChunkPos.ToString() + playerController->blockFaceLookingAt.ToString()).c_str());
     ImGui::Text(("Ray Point:" + playerController->D_playerRay.intersectPoint.ToString() + std::to_string(playerController->D_playerRay.rLength)).c_str());
     ImGui::Text("Origin Chunk");
     if (playerController->playerEntity->originChunk)
@@ -133,6 +133,11 @@ int main(void)
     Camera camera;
 
     Renderer renderer;
+    
+    UI ui;
+    ui.uiShader->Bind();
+    ui.uiTexture->Bind(0);
+    ui.uiShader->SetUniform1i("u_Texture", 0);
 
     BlockRegister::Init();
     std::cout << "Texture Count:" << Texture::debug_texture_count << std::endl;
@@ -189,7 +194,7 @@ int main(void)
 
         /*--Render--*/
         renderer.Clear();
-        renderer.Render(&camera, &chunkHandler, &playerController);
+        renderer.Render(&camera, &chunkHandler, &playerController, &ui);
 
         RunImGuiFrame(&chunkHandler, &playerController);
 

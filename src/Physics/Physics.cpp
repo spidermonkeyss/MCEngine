@@ -89,10 +89,11 @@ Ray Physics::BlockRayIntersect(Chunk* chunk, BlockData* bd, Vector3 startPoint, 
 
 					//Get ray length
 					float t = d / abs(cos(Vector3::AngleRadians(direction, planeNormal)));
-					if (t > 10)
-					{
-						std::cout << "t is big";
-					}
+					
+					//if (t > 10)
+					//{
+					//	std::cout << "t is big";
+					//}
 
 					if (t < 0)
 					{

@@ -20,7 +20,7 @@ private:
 	std::unordered_map<std::string, int> m_UniformLocationCache;
 public:
 	Shader();
-	Shader(const std::string& filepath);
+	Shader(const std::string& filepath, bool useGeometryShader);
 	~Shader();
 
 	void Bind() const;
@@ -40,6 +40,7 @@ private:
 	unsigned int CompileShader(unsigned int type, const std::string& source);
 	ShaderProgramSource ParseShader(const std::string& filepath);
 	unsigned int CreateShader(const std::string& vertexShader, const std::string& geometryShader, const std::string& fragmentShader);
+	unsigned int CreateShader(const std::string& vertexShader, const std::string& fragmentShader);
 
 	int GetUniformLocation(const std::string& name);
 };

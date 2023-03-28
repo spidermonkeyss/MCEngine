@@ -14,7 +14,7 @@ private:
 public:
 	Entity* playerEntity;
 	bool isLookingAtBlock = false;
-	Vector3 blockLookingAtPos;
+	Vector3 blockLookingAtChunkPos;
 	Chunk* chunkLookingAt;
 	BlockFace blockFaceLookingAt;
 

@@ -140,6 +140,7 @@
     <ClInclude Include="src\Physics\Physics.h">
       <Filter>Physics</Filter>
     </ClInclude>
+    <ClInclude Include="src\UI\UI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Blocks\Block.cpp">
@@ -219,5 +220,6 @@
     <ClCompile Include="src\Physics\Physics.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
+    <ClCompile Include="src\UI\UI.cpp" />
   </ItemGroup>
 </Project>

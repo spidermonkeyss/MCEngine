@@ -5,6 +5,7 @@
 Camera::Camera()
 	:aspectRatio(0), widthView(0)
 {
+
     float ratio;
     int width, height;
     glfwGetFramebufferSize(Input::window, &width, &height);
@@ -18,4 +19,5 @@ Camera::Camera()
 
 Camera::~Camera()
 {
+
 }

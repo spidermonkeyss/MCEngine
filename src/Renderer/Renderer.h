@@ -6,23 +6,17 @@
 #include "Camera.h"
 #include "Entity/PlayerController.h"
 #include "Chunk/ChunkHandler.h"
-
-#include "glm/glm.hpp"
+#include "UI/UI.h"
 
 class Renderer
 {
 private:
-	glm::mat4 m;
-	glm::mat4 v;
-	glm::mat4 vp;
-	glm::mat4 mvp;
-
-	void Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const;
-	void Draw(const VertexArray& va, unsigned int count, const Shader& shader) const;
+	void DrawUI(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const;
+	void DrawChunks(const VertexArray& va, unsigned int count, const Shader& shader) const;
 public:
 	Renderer();
 	~Renderer();
 
-	void Render(Camera* camera, ChunkHandler* chunkHandler, PlayerController* playerController);
+	void Render(Camera* camera, ChunkHandler* chunkHandler, PlayerController* playerController, UI* ui);
 	void Clear() const;
 };

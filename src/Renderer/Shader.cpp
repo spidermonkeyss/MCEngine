@@ -13,11 +13,16 @@ Shader::Shader()
 	std::cout << "Shader created id:" << m_RendererID << std::endl;
 }
 
-Shader::Shader(const std::string & filepath)
+Shader::Shader(const std::string & filepath, bool useGeometryShader)
 	: m_FilePath(filepath), m_RendererID(0)
 {
 	ShaderProgramSource source = ParseShader(filepath);
-	m_RendererID = CreateShader(source.VertexSource, source.GeometrySource, source.FragmentSource);
+
+	if (useGeometryShader)
+		m_RendererID = CreateShader(source.VertexSource, source.GeometrySource, source.FragmentSource);
+	else
+		m_RendererID = CreateShader(source.VertexSource, source.FragmentSource);
+
 	std::cout << "Shader created id:" << m_RendererID << std::endl;
 }
 
@@ -114,6 +119,23 @@ unsigned int Shader::CreateShader(const std::string& vertexShader, const std::st
 	return program;
 }
 
+unsigned int Shader::CreateShader(const std::string& vertexShader, const std::string& fragmentShader)
+{
+	unsigned int program = glCreateProgram();//Create program object and give back the id for it
+	unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertexShader);//Get the id of the shader object
+	unsigned int fs = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
+
+	GLCall(glAttachShader(program, vs));//Attaches a shader object to a program object
+	GLCall(glAttachShader(program, fs));
+	GLCall(glLinkProgram(program));//Links the program. Any shaders attached are linked with this
+	GLCall(glValidateProgram(program));//Validates a program object
+
+	//Shaders are now in the program and the temp ones can be deleted
+	GLCall(glDeleteShader(vs));//frees memory
+	GLCall(glDeleteShader(fs));
+
+	return program;
+}
 
 void Shader::Bind() const
 {
